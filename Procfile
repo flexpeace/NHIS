@@ -1,1 +1,1 @@
-web: gunicorn --pythonpath="$PWD/main" main.wsgi
+web: gunicorn --pythonpath="$PWD/JDHealthClaims" JDHealthClaims.wsgi
