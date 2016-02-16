@@ -111,9 +111,12 @@
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="/static/ie10-viewport-bug-workaround.js"></script>
 
-    <script>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.js"></script>
 
-$(function() {
+<script>
+
+$( document ).ready(function() {
+   $(function() {
 
     $('#login-form-link').click(function(e) {
     $("#login-form").delay(100).fadeIn(100);
@@ -131,6 +134,10 @@ $(function() {
   });
 
 });
+});
+
+
+
 
     </script>
   </body>
