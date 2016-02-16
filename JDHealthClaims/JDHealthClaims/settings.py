@@ -16,6 +16,10 @@ import logging
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'staticfiles'),
+)
+
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
 STATIC_URL = '/static/'
 TEMPLATE_DEBUG = True
@@ -34,7 +38,7 @@ SECRET_KEY = '%s(cr$!-wbh92w=9t+%4j@kdd)n3c7_6bu)xaq$s3-=2+tv99j'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
