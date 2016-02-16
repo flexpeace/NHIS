@@ -6,3 +6,6 @@ log = logging.getLogger(__name__)
 
 def home(request):
     return render(request, 'index.html')
+
+def forgot(request):
+    return render(request, 'passwordreset.html')

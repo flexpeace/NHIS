@@ -7,6 +7,7 @@ from django.views.generic import TemplateView, RedirectView
 urlpatterns = [
     # Examples:
      url(r'^$', 'main.views.home', name='home'),
+     url(r'^forgot$', 'main.views.forgot', name='forgot'),
    
      
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
