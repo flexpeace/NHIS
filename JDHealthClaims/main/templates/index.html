@@ -1,4 +1,4 @@
-{% load url from future %}
+
 {% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
@@ -35,6 +35,34 @@
 
   <body style=" background: #ECECEC;">
 
+ {% if user.is_authenticated %}
+     <div class="container">
+
+     <div class="jumbotron" style="text-align:center">
+        <h1>Dashboard</h1>
+        <p class="lead">This platform allows all health professionals to create and submit their National Health Insurance Claims. Claim Managers will then approve or disprove a claim</p>
+        
+          </div>
+      
+         <div class="col-md-8 col-md-offset-2">
+        <div class="row">
+
+          <h2>What do you want to do now?</h2>
+            <ul class="list-group">
+              <li class="list-group-item"> <button type="button" class="btn btn-default">Submit Health Claim</button></li>
+               <li class="list-group-item"> <a href="/registration"><button type="button" class="btn btn-default">create Profile</button></li></li>
+              <li class="list-group-item"> <button type="button" class="btn btn-default">View Profile</button></li>
+              <li class="list-group-item"> <button type="button" class="btn btn-default">Update Profile</button> </li>
+              <li class="list-group-item"> <a href="/logout/"> <button type="button" class="btn btn-default">Logout</button></a </li>
+
+            </ul>
+
+         </div>
+          
+     </div></div>
+
+{% else %}
+   
    <div class="container">
 
      <div class="jumbotron" style="text-align:center">
@@ -45,14 +73,25 @@
 
 
 
-
-
-
-
-
-
+ 
 
       <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+     {% if form.errors %}
+    <p class="error" style="color:red">Sorry, that's not a valid username or password</p>
+    {% endif %}
+   
+      {% if  user_form.errors %}
+    <p class="error" style="color:red">{{ user_form.errors}}</p>
+    {% endif %}
+
+   
+    </div>
+
+    </div>
+
+      <div class="row">
+
       <div class="col-md-6 col-md-offset-3">
         <div class="panel panel-login">
           <div class="panel-heading">
@@ -69,7 +108,7 @@
           <div class="panel-body">
             <div class="row">
               <div class="col-lg-12">
-                <form id="login-form" action="#" method="post" role="form" style="display: block;">
+                <form  action="{% url 'login' %}" id="login-form" method="post" role="form" style="display: block;"> {% csrf_token %}
                   <div class="form-group">
                     <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
                   </div>
@@ -83,7 +122,8 @@
                   <div class="form-group">
                     <div class="row">
                       <div class="col-sm-6 col-sm-offset-3">
-                        <input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login" value="Log In">
+                        <input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login" value="login">
+                        <input type="hidden" name="next" value="/" />
                       </div>
                     </div>
                   </div>
@@ -99,19 +139,21 @@
                 </form>
 
 
-                <form id="register-form" action="#" method="post" role="form" style="display: none;">
+                <form id="register-form"  action="/signup" method="post" role="form" style="display: none;">    {% csrf_token %}
+
+                 
+
+
                   <div class="form-group">
-                    <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
+                    <input type="text" name="username" id="id_username" tabindex="1" class="form-control" placeholder="Username" value="">
                   </div>
                   <div class="form-group">
-                    <input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="Email Address" value="">
+                    <input type="email" name="email" id="id_mail" tabindex="1" class="form-control" placeholder="Email Address" value="">
                   </div>
                   <div class="form-group">
-                    <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
+                    <input type="password" name="password" id="id_password" tabindex="2" class="form-control" placeholder="Password">
                   </div>
-                  <div class="form-group">
-                    <input type="password" name="confirm-password" id="confirm-password" tabindex="2" class="form-control" placeholder="Confirm Password">
-                  </div>
+                  
                   <div class="form-group">
                     <div class="row">
                       <div class="col-sm-6 col-sm-offset-3">
@@ -138,6 +180,16 @@
       </div>
     </div>
   </div>
+{% endif %}
+
+
+
+
+
+
+
+
+
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="/static/ie10-viewport-bug-workaround.js"></script>
