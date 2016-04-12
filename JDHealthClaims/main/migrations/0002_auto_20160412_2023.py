@@ -1,0 +1,151 @@
+# -*- coding: utf-8 -*-
+from __future__ import unicode_literals
+
+from django.db import models, migrations
+from decimal import Decimal
+
+
+class Migration(migrations.Migration):
+
+    dependencies = [
+        ('main', '0001_initial'),
+    ]
+
+    operations = [
+        migrations.CreateModel(
+            name='Claim',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('ClaimNumber', models.CharField(max_length=14, verbose_name=b'Claim Number', blank=True)),
+                ('scheme_name', models.CharField(default=b'JIRAPA DISTRICT NHIS', max_length=255, verbose_name=b'Scheme Name', blank=True)),
+                ('DateofClaim', models.DateField(verbose_name=b'Date of Claim', blank=True)),
+                ('typeOfService', models.CharField(blank=True, max_length=255, verbose_name=b'Type of service (i)', choices=[(b'', b'Service'), (b'Outpatient', b'Outpatient'), (b'Diagnostic', b'Diagnostic'), (b'In-Patient', b'In-Patient'), (b'All Inclusive', b'All Inclusive'), (b'Unbundled', b'Unbundled')])),
+                ('Pharamacy', models.BooleanField(default=False, verbose_name=b'Pharamacy')),
+                ('outcome', models.CharField(blank=True, max_length=255, verbose_name=b'Outcome', choices=[(b'', b'Outcome'), (b'Discharged', b'Discharged'), (b'Died', b'Died'), (b'Transferred Out', b'Transferred Out'), (b'Absconded', b'Absconded')])),
+                ('first_visit_date', models.DateField(max_length=255, verbose_name=b'First Visit Date', blank=True)),
+                ('second_visit_date', models.DateField(max_length=255, verbose_name=b'Second Visit Date', blank=True)),
+                ('third_visit_date', models.DateField(max_length=255, verbose_name=b'Third Visit Date', blank=True)),
+                ('forth_visit_date', models.DateField(max_length=255, verbose_name=b'Fourth Visit Date', blank=True)),
+                ('durationDays', models.IntegerField(default=0, max_length=30, verbose_name=b'Duration of Spell (Days)', blank=True)),
+                ('attendance', models.CharField(blank=True, max_length=255, verbose_name=b'Type of Attendance', choices=[(b'', b'Attendance'), (b'Chronic Follow-Up', b'Chronic Follow-Up'), (b'Emgergency/Acute episode', b'Emgergency/Acute episode')])),
+                ('specialtyCode', models.CharField(max_length=4, verbose_name=b'Specialty Code', blank=True)),
+                ('specialtyDescription', models.CharField(max_length=255, verbose_name=b'Specialty Description', blank=True)),
+                ('procedureOneDescription', models.CharField(blank=True, max_length=255, verbose_name=b'Precedure 1 Description', choices=[(b'', b'Procedure Description'), (b'None', b'None')])),
+                ('procedureTwoDescription', models.CharField(blank=True, max_length=255, verbose_name=b'Precedure 2 Description', choices=[(b'', b'Procedure Description'), (b'None', b'None')])),
+                ('procedureThreeDescription', models.CharField(blank=True, max_length=255, verbose_name=b'Precedure 3 Description', choices=[(b'', b'Procedure Description'), (b'None', b'None')])),
+                ('procedureOne_date', models.DateField(max_length=255, verbose_name=b'Procedure 1 Date', blank=True)),
+                ('procedureTwo_date', models.DateField(max_length=255, verbose_name=b'Procedure 2 Date', blank=True)),
+                ('procedureThree_date', models.DateField(max_length=255, verbose_name=b'Procedure 3 Date', blank=True)),
+                ('GDRGOneprocedure', models.CharField(blank=True, max_length=255, verbose_name=b'G-DRG Procedure 1', choices=[(b'', b'Procedure Description'), (b'None', b'None')])),
+                ('GDRGTwoprocedure', models.CharField(blank=True, max_length=255, verbose_name=b'G-DRG Procedure 2', choices=[(b'', b'Procedure Description'), (b'None', b'None')])),
+                ('GDRGThreeprocedure', models.CharField(blank=True, max_length=255, verbose_name=b'G-DRG Procedure 3', choices=[(b'', b'Procedure Description'), (b'None', b'None')])),
+                ('diagOneDescription', models.CharField(blank=True, max_length=255, verbose_name=b'diagnosis 1 Description', choices=[(b'', b'Diagnosis Description'), (b'None', b'None')])),
+                ('diagTwoDescription', models.CharField(blank=True, max_length=255, verbose_name=b'diagnosis 2 Description', choices=[(b'', b'Diagnosis Description'), (b'None', b'None')])),
+                ('diagThreeDescription', models.CharField(blank=True, max_length=255, verbose_name=b'diagnosis 3 Description', choices=[(b'', b'Diagnosis Description'), (b'None', b'None')])),
+                ('diagFourDescription', models.CharField(blank=True, max_length=255, verbose_name=b'diagnosis 4 Description', choices=[(b'', b'Diagnosis Description'), (b'None', b'None')])),
+                ('diagOne_date', models.DateField(max_length=255, verbose_name=b'diagnosis 1 Date', blank=True)),
+                ('diagTwo_date', models.DateField(max_length=255, verbose_name=b'diagnosis 2 Date', blank=True)),
+                ('diagThree_date', models.DateField(max_length=255, verbose_name=b'diagnosis 3 Date', blank=True)),
+                ('diagFour_date', models.DateField(max_length=255, verbose_name=b'diagnosis 4 Date', blank=True)),
+                ('GDRGOnediag', models.CharField(blank=True, max_length=255, verbose_name=b'G-DRG diagnosis 1', choices=[(b'', b'Diagnosis G-DRG'), (b'ASUR01', b'ASUR01'), (b'ASUR02', b'ASUR02'), (b'ASUR03', b'ASUR03'), (b'ASUR04', b'ASUR04'), (b'ASUR05', b'ASUR05')])),
+                ('GDRGTwodiag', models.CharField(blank=True, max_length=255, verbose_name=b'G-DRG diagnosis 2', choices=[(b'', b'Diagnosis G-DRG'), (b'ASUR01', b'ASUR01'), (b'ASUR02', b'ASUR02'), (b'ASUR03', b'ASUR03'), (b'ASUR04', b'ASUR04'), (b'ASUR05', b'ASUR05')])),
+                ('GDRGThreediag', models.CharField(blank=True, max_length=255, verbose_name=b'G-DRG diagnosis 3', choices=[(b'', b'Diagnosis G-DRG'), (b'ASUR01', b'ASUR01'), (b'ASUR02', b'ASUR02'), (b'ASUR03', b'ASUR03'), (b'ASUR04', b'ASUR04'), (b'ASUR05', b'ASUR05')])),
+                ('GDRGFourdiag', models.CharField(blank=True, max_length=255, verbose_name=b'G-DRG diagnosis 4', choices=[(b'', b'Diagnosis G-DRG'), (b'ASUR01', b'ASUR01'), (b'ASUR02', b'ASUR02'), (b'ASUR03', b'ASUR03'), (b'ASUR04', b'ASUR04'), (b'ASUR05', b'ASUR05')])),
+                ('medOneDescription', models.CharField(blank=True, max_length=255, verbose_name=b'Medicine 1 Description', choices=[(b'', b'Medicine Code'), (b'ACETAZIN1', b'ACETAZIN1'), (b'ACETAZTA1', b'ACETAZTA1'), (b'ACETYLIN1', b'ACETYLIN1'), (b'ACETYLTA1', b'ACETYLTA1'), (b'ACETYLDT1', b'ACETYLDT1'), (b'ACTCHAPO1', b'ACTCHAPO1'), (b'ACICLOCR1', b'ACICLOCR1'), (b'ACICLOEO1', b'ACICLOEO1'), (b'ACICLOIN1', b'ACICLOIN1'), (b'ACICLOSU2', b'ACICLOSU2'), (b'ACICLOTA1', b'ACICLOTA1'), (b'ADRENAIN1', b'ADRENAIN1'), (b'ADRENAIN2', b'ADRENAIN2'), (b'ADRIAMIN1', b'ADRIAMIN1'), (b'ALBENDTA1', b'ALBENDTA1'), (b'ALBENDTA2', b'ALBENDTA2'), (b'ALLOPUTA1', b'ALLOPUTA1'), (b'ALLOPUTA2', b'ALLOPUTA2'), (b'AMIACIIN1', b'AMIACIIN1')])),
+                ('medTwoDescription', models.CharField(blank=True, max_length=255, verbose_name=b'Medicine 2 Description', choices=[(b'', b'Medicine Code'), (b'ACETAZIN1', b'ACETAZIN1'), (b'ACETAZTA1', b'ACETAZTA1'), (b'ACETYLIN1', b'ACETYLIN1'), (b'ACETYLTA1', b'ACETYLTA1'), (b'ACETYLDT1', b'ACETYLDT1'), (b'ACTCHAPO1', b'ACTCHAPO1'), (b'ACICLOCR1', b'ACICLOCR1'), (b'ACICLOEO1', b'ACICLOEO1'), (b'ACICLOIN1', b'ACICLOIN1'), (b'ACICLOSU2', b'ACICLOSU2'), (b'ACICLOTA1', b'ACICLOTA1'), (b'ADRENAIN1', b'ADRENAIN1'), (b'ADRENAIN2', b'ADRENAIN2'), (b'ADRIAMIN1', b'ADRIAMIN1'), (b'ALBENDTA1', b'ALBENDTA1'), (b'ALBENDTA2', b'ALBENDTA2'), (b'ALLOPUTA1', b'ALLOPUTA1'), (b'ALLOPUTA2', b'ALLOPUTA2'), (b'AMIACIIN1', b'AMIACIIN1')])),
+                ('medThreeDescription', models.CharField(blank=True, max_length=255, verbose_name=b'Medicine 3 Description', choices=[(b'', b'Medicine Code'), (b'ACETAZIN1', b'ACETAZIN1'), (b'ACETAZTA1', b'ACETAZTA1'), (b'ACETYLIN1', b'ACETYLIN1'), (b'ACETYLTA1', b'ACETYLTA1'), (b'ACETYLDT1', b'ACETYLDT1'), (b'ACTCHAPO1', b'ACTCHAPO1'), (b'ACICLOCR1', b'ACICLOCR1'), (b'ACICLOEO1', b'ACICLOEO1'), (b'ACICLOIN1', b'ACICLOIN1'), (b'ACICLOSU2', b'ACICLOSU2'), (b'ACICLOTA1', b'ACICLOTA1'), (b'ADRENAIN1', b'ADRENAIN1'), (b'ADRENAIN2', b'ADRENAIN2'), (b'ADRIAMIN1', b'ADRIAMIN1'), (b'ALBENDTA1', b'ALBENDTA1'), (b'ALBENDTA2', b'ALBENDTA2'), (b'ALLOPUTA1', b'ALLOPUTA1'), (b'ALLOPUTA2', b'ALLOPUTA2'), (b'AMIACIIN1', b'AMIACIIN1')])),
+                ('medFourDescription', models.CharField(blank=True, max_length=255, verbose_name=b'Medicine 4 Description', choices=[(b'', b'Medicine Code'), (b'ACETAZIN1', b'ACETAZIN1'), (b'ACETAZTA1', b'ACETAZTA1'), (b'ACETYLIN1', b'ACETYLIN1'), (b'ACETYLTA1', b'ACETYLTA1'), (b'ACETYLDT1', b'ACETYLDT1'), (b'ACTCHAPO1', b'ACTCHAPO1'), (b'ACICLOCR1', b'ACICLOCR1'), (b'ACICLOEO1', b'ACICLOEO1'), (b'ACICLOIN1', b'ACICLOIN1'), (b'ACICLOSU2', b'ACICLOSU2'), (b'ACICLOTA1', b'ACICLOTA1'), (b'ADRENAIN1', b'ADRENAIN1'), (b'ADRENAIN2', b'ADRENAIN2'), (b'ADRIAMIN1', b'ADRIAMIN1'), (b'ALBENDTA1', b'ALBENDTA1'), (b'ALBENDTA2', b'ALBENDTA2'), (b'ALLOPUTA1', b'ALLOPUTA1'), (b'ALLOPUTA2', b'ALLOPUTA2'), (b'AMIACIIN1', b'AMIACIIN1')])),
+                ('medFiveDescription', models.CharField(blank=True, max_length=255, verbose_name=b'Medicine 5 Description', choices=[(b'', b'Medicine Code'), (b'ACETAZIN1', b'ACETAZIN1'), (b'ACETAZTA1', b'ACETAZTA1'), (b'ACETYLIN1', b'ACETYLIN1'), (b'ACETYLTA1', b'ACETYLTA1'), (b'ACETYLDT1', b'ACETYLDT1'), (b'ACTCHAPO1', b'ACTCHAPO1'), (b'ACICLOCR1', b'ACICLOCR1'), (b'ACICLOEO1', b'ACICLOEO1'), (b'ACICLOIN1', b'ACICLOIN1'), (b'ACICLOSU2', b'ACICLOSU2'), (b'ACICLOTA1', b'ACICLOTA1'), (b'ADRENAIN1', b'ADRENAIN1'), (b'ADRENAIN2', b'ADRENAIN2'), (b'ADRIAMIN1', b'ADRIAMIN1'), (b'ALBENDTA1', b'ALBENDTA1'), (b'ALBENDTA2', b'ALBENDTA2'), (b'ALLOPUTA1', b'ALLOPUTA1'), (b'ALLOPUTA2', b'ALLOPUTA2'), (b'AMIACIIN1', b'AMIACIIN1')])),
+                ('medCodeOne', models.CharField(max_length=255, verbose_name=b'Medicine Code 1', blank=True)),
+                ('medCodeTwo', models.CharField(max_length=255, verbose_name=b'Medicine Code 2', blank=True)),
+                ('medCodeThree', models.CharField(max_length=255, verbose_name=b'Medicine Code 3', blank=True)),
+                ('medCodeFour', models.CharField(max_length=255, verbose_name=b'Medicine Code 4', blank=True)),
+                ('medCodeFive', models.CharField(max_length=255, verbose_name=b'Medicine Code 5', blank=True)),
+                ('medOnePrice', models.DecimalField(default=Decimal('0.0000'), verbose_name=b'Medicine One Price', max_digits=20, decimal_places=4, blank=True)),
+                ('medTwoPrice', models.DecimalField(default=Decimal('0.0000'), verbose_name=b'riMedicine Two Price', max_digits=20, decimal_places=4, blank=True)),
+                ('medThreePrice', models.DecimalField(default=Decimal('0.0000'), verbose_name=b'Medicine Three Price', max_digits=20, decimal_places=4, blank=True)),
+                ('medFourPrice', models.DecimalField(default=Decimal('0.0000'), verbose_name=b'Medicine Four Price', max_digits=20, decimal_places=4, blank=True)),
+                ('medFivePrice', models.DecimalField(default=Decimal('0.0000'), verbose_name=b'Medicine Five Price', max_digits=20, decimal_places=4, blank=True)),
+                ('medQTYone', models.IntegerField(default=0, verbose_name=b'Medicine 2 Quantity', blank=True)),
+                ('medQTYThree', models.IntegerField(default=0, verbose_name=b'Medicine 3 Quantity', blank=True)),
+                ('medQTYFour', models.IntegerField(default=0, verbose_name=b'Medicine 4 Quantity', blank=True)),
+                ('medQTYFive', models.IntegerField(default=0, verbose_name=b'Medicine 5 Quantity', blank=True)),
+                ('medOneTotal', models.DecimalField(default=Decimal('0.0000'), verbose_name=b'Medicine One Total Cost', max_digits=20, decimal_places=4, blank=True)),
+                ('medTwoTotal', models.DecimalField(default=Decimal('0.0000'), verbose_name=b'riMedicine Two Total Cost', max_digits=20, decimal_places=4, blank=True)),
+                ('medThreeTotal', models.DecimalField(default=Decimal('0.0000'), verbose_name=b'Medicine Three Total Cost', max_digits=20, decimal_places=4, blank=True)),
+                ('medFourTotal', models.DecimalField(default=Decimal('0.0000'), verbose_name=b'Medicine Four Total Cost', max_digits=20, decimal_places=4, blank=True)),
+                ('medFiveTotal', models.DecimalField(default=Decimal('0.0000'), verbose_name=b'Medicine Five Total Cost', max_digits=20, decimal_places=4, blank=True)),
+                ('medOne_date', models.DateField(max_length=255, verbose_name=b'Medicine 1 Date', blank=True)),
+                ('medTwo_date', models.DateField(max_length=255, verbose_name=b'Medicine 2 Date', blank=True)),
+                ('medThree_date', models.DateField(max_length=255, verbose_name=b'Medicine 3 Date', blank=True)),
+                ('medFour_date', models.DateField(max_length=255, verbose_name=b'Medicine 4 Date', blank=True)),
+                ('medFive_date', models.DateField(max_length=255, verbose_name=b'Medicine 5 Date', blank=True)),
+            ],
+            options={
+                'verbose_name': 'Claim',
+                'verbose_name_plural': 'Claims',
+            },
+        ),
+        migrations.CreateModel(
+            name='Medicine',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('Code', models.CharField(max_length=255, verbose_name=b'Code', blank=True)),
+                ('generic_name', models.CharField(max_length=255, verbose_name=b'Generic Name', blank=True)),
+                ('Price_Unit', models.CharField(max_length=255, verbose_name=b'Price Unit', blank=True)),
+                ('Price', models.DecimalField(default=Decimal('0.0000'), verbose_name=b'Price', max_digits=20, decimal_places=4, blank=True)),
+                ('level', models.CharField(blank=True, max_length=255, verbose_name=b'Level of prescribing', choices=[(b'', b'Level of health care provided'), (b'A', b'Chips compound'), (b'B1', b'Health Centre without a Doctor'), (b'B2', b'Health centre with a Doctor'), (b'M', b'Maternity home with Midwife'), (b'C', b'District Hospital'), (b'D', b'Regional Hospital'), (b'E', b'Teaching Hospital')])),
+            ],
+            options={
+                'verbose_name': 'Medcine',
+                'verbose_name_plural': 'Medicines',
+            },
+        ),
+        migrations.CreateModel(
+            name='Patient',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('first_name', models.CharField(max_length=255, verbose_name=b'First Name', blank=True)),
+                ('last_name', models.CharField(max_length=255, verbose_name=b'Last Name', blank=True)),
+                ('Age', models.IntegerField(default=18, max_length=30, verbose_name=b'Age', blank=True)),
+                ('birthdate', models.DateField(verbose_name=b'Birthdate', blank=True)),
+                ('hospital_record_number', models.CharField(default=b'0000000', max_length=255, verbose_name=b'Hospital Record No:', blank=True)),
+                ('nhis_number', models.CharField(max_length=255, verbose_name=b'NHIS Number', blank=True)),
+                ('gender', models.CharField(blank=True, max_length=255, verbose_name=b'Gender', choices=[(b'', b'Gender'), (b'Male', b'Male'), (b'Female', b'Female'), (b'Other', b'Other')])),
+            ],
+            options={
+                'verbose_name': 'Patient',
+                'verbose_name_plural': 'Patients',
+            },
+        ),
+        migrations.AlterField(
+            model_name='registration',
+            name='country',
+            field=models.CharField(default=b'Ghana', max_length=255, verbose_name=b'location'),
+        ),
+        migrations.AlterField(
+            model_name='registration',
+            name='district',
+            field=models.CharField(default=b'JIRAPA-LAMBUSSIE', max_length=255, verbose_name=b'District'),
+        ),
+        migrations.AlterField(
+            model_name='registration',
+            name='email',
+            field=models.EmailField(default=b'info@info.com', max_length=255, verbose_name=b'Email'),
+        ),
+        migrations.AlterField(
+            model_name='registration',
+            name='level',
+            field=models.CharField(max_length=255, verbose_name=b'Provider Type', choices=[(b'', b'Level of health care provided'), (b'A', b'Chips compound'), (b'B1', b'Health Centre without a Doctor'), (b'B2', b'Health centre with a Doctor'), (b'M', b'Maternity home with Midwife'), (b'C', b'District Hospital'), (b'D', b'Regional Hospital'), (b'E', b'Teaching Hospital')]),
+        ),
+        migrations.AlterField(
+            model_name='registration',
+            name='phone_number',
+            field=models.CharField(default=b'0240647463', max_length=30, verbose_name=b'Phone number', blank=True),
+        ),
+        migrations.AddField(
+            model_name='claim',
+            name='Client',
+            field=models.ForeignKey(verbose_name=b'Client', to='main.Patient'),
+        ),
+    ]
