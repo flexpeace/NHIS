@@ -74,26 +74,26 @@ ul {
 
  <body style="     background: #5A5A5A;">
 
-   <div class="container" style="background: #ECECEC;margin-bottom:50px; padding-bottom:20px">
+   <div style=" background: #ECECEC;"class="container" style="margin-bottom:50px">
 
-     <div class="jumbotron" style="text-align:center">
-        <a href="/" > <h1>Registration JDHealth Claim</h1> </a>
-        <p class="lead">Please complete this form and we shall contact you shortly</p>
+     <div  class="jumbotron" style="text-align:center">
+        <a href="/" > <h1>Registration JDHealth Claim</h1></a>
+        <p class="lead">Use the form below to submit a claim</p>
         
       </div>
 
         <div class="col-md-8 col-md-offset-2">
-        <div class="row">
+        <div class="row" style=" background: #ECECEC;">
 
         
-               <form  method="POST" id="registrationForm" class="registration-form" action="/registration" > {% csrf_token %}
+               <form  style=" padding:20px" method="POST" id="registrationForm" class="registration-form" action="/submit" > {% csrf_token %}
                    
                    
                  {% for error in form.non_field_errors %}
                     {{error}}
               {% endfor %}
 
-                {% include 'registration_content.html' %}
+                {% include 'claim_content.html' %}
                  
              <button type="submit" name="action_add"  class="btn btn-default">Get Started</button>
                                     

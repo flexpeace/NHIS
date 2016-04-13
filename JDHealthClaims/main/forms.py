@@ -21,7 +21,9 @@ class profileform(forms.ModelForm):
         return self.cleaned_data
     
     #def save(self, request, commit=True,  *args, **kwargs):
-        #m = super(inquiryForm, self).save(commit=False,  *args, **kwargs)
+        #m = super(profileform, self).save(commit=False,  *args, **kwargs)
+       
+        #m.save()
         #return m
     
   
@@ -86,7 +88,7 @@ class profileform(forms.ModelForm):
    
     class Meta:
         model = Registration
-        exclude = ['date_inquired']
+        exclude = ['date_inquired', 'owner']
 
 
 
@@ -96,3 +98,77 @@ class UserForm(forms.ModelForm):
     class Meta:
         model = User
         fields = ('username', 'email', 'password')
+
+
+class claimformForm(forms.ModelForm):
+    
+    def __init__(self, *args, **kwargs):
+        self.user = kwargs.pop("user", None)
+        super(claimformForm, self).__init__(*args, **kwargs)
+        self.fields['Client'] = forms.ModelChoiceField(queryset= Patient.objects.all(),required=True,widget=forms.TextInput(attrs={'class': 'form-control','placeholder': 'Client'}))
+    
+    def clean(self):
+        super(claimformForm, self).clean()
+        return self.cleaned_data
+    
+    #def save(self, request, commit=True,  *args, **kwargs):
+        #m = super(inquiryForm, self).save(commit=False,  *args, **kwargs)
+        #return m
+ 
+    ClaimNumber = forms.CharField(
+        required=True,
+        max_length=80,
+        widget=forms.TextInput(attrs={'class': 'form-control','placeholder': 'Claim Number'}),
+    )
+
+
+    scheme_name = forms.CharField(
+        required=True,
+        max_length=80,
+        widget=forms.TextInput(attrs={'class': 'form-control','value':'JIRAPA DISTRICT NHIS', 'placeholder': 'scheme name'}),
+    )
+
+
+    DateofClaim = forms.DateField(
+        required=True,
+        widget=forms.TextInput(attrs={'class': 'form-control','placeholder': 'yyyy-mm-dd'}),
+    )
+
+
+    Client = forms.ModelChoiceField(queryset= Patient.objects.all(),required=True,
+    widget=forms.TextInput(attrs={'class': 'form-control','placeholder': 'Client'}) )
+
+
+    typeOfService = forms.ChoiceField(
+        required=True,
+        widget=forms.Select(attrs={'class': 'form-control '}),
+        choices=SERVICE_CHOICES,
+        #initial=TITLE_CHOICES[0][0],
+    )
+
+    outcome = forms.ChoiceField(
+        required=True,
+        widget=forms.Select(attrs={'class': 'form-control '}),
+        choices=OUTCOME_CHOICES,
+        #initial=TITLE_CHOICES[0][0],
+    )
+
+    
+    first_visit_date = forms.DateField(
+        required=True,
+        widget=forms.TextInput(attrs={'class': 'form-control','placeholder': 'yyyy-mm-dd'}),
+    )
+
+
+    attendance = forms.ChoiceField(
+        required=True,
+        widget=forms.Select(attrs={'class': 'form-control '}),
+        choices=ATTENDANCE_CHOICES,
+        #initial=TITLE_CHOICES[0][0],
+    )
+    
+
+    class Meta:
+        model = Claim
+        fields = '__all__' 
+

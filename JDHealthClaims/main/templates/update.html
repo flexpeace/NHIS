@@ -86,7 +86,7 @@ ul {
         <div class="row">
 
         
-               <form  method="POST" id="registrationForm" class="registration-form" action="/registration" > {% csrf_token %}
+               <form  method="POST" id="registrationForm" class="registration-form" action="/update/{{profile.id}}" > {% csrf_token %}
                    
                    
                  {% for error in form.non_field_errors %}

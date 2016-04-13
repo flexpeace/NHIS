@@ -65,10 +65,15 @@
 
           <h2>What do you want to do now?</h2>
             <ul class="list-group">
-              <li class="list-group-item"> <button type="button" class="btn btn-default">Submit Health Claim</button></li>
+              <li class="list-group-item"> <a href="/submit"><button type="button" class="btn btn-default">Submit Health Claim</button></a></li>
+               
+               {% if not hasProfile %}
                <li class="list-group-item"> <a href="/registration"><button type="button" class="btn btn-default">create Profile</button></li></li>
-              <li class="list-group-item"> <button type="button" class="btn btn-default">View Profile</button></li>
-              <li class="list-group-item"> <button type="button" class="btn btn-default">Update Profile</button> </li>
+               {% endif %}
+             
+              {% if hasProfile %}
+              <li class="list-group-item"> <a href="/update/{{profile.id}}" > <button type="button" class="btn btn-default">View/Update Profile</button></a></li>
+              {% endif %}
               <li class="list-group-item"> <a href="/logout/"> <button type="button" class="btn btn-default">Logout</button></a </li>
 
             </ul>
@@ -86,10 +91,6 @@
         <p class="lead">This platform allows all health professionals to create and submit their National Health Insurance Claims. Claim Managers will then approve or disprove a claim</p>
         
       </div>
-
-
-
- 
 
       <div class="row">
     <div class="col-md-6 col-md-offset-3">

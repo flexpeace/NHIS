@@ -16,6 +16,12 @@ urlpatterns = [
         url(r'^confirm$', 'main.views.confirm', name='confirm'),
 
          url(r'^main$', 'main.views.main', name='main'),
+
+          url(r'^submit$', 'main.views.claim', name='claim'),
+    url(r'^update/(?P<pk>[0-9]+)$', 'main.views.update_view', name='update_view'),
+          
+
+
           url(r'^why$', 'main.views.loginview', name='loginview'),
 
  url(r'^signup$', 'main.views.register', name='register'),

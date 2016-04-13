@@ -1,5 +1,5 @@
 LEVEL_CHOICES = (
-    ("", "Level of health care provided"),
+    ("", "---Level of health care provided--"),
     ("A", "Chips compound"),
     ("B1", "Health Centre without a Doctor"),
      ("B2", "Health centre with a Doctor"),
@@ -13,7 +13,7 @@ LEVEL_CHOICES = (
 
 
 GENDER_CHOICES= (
-    ("", "Gender"),
+    ("", "--Gender--"),
     ("Male", "Male"),
     ("Female", "Female"),
      ("Other", "Other"),
@@ -23,7 +23,7 @@ GENDER_CHOICES= (
 
 
 SERVICE_CHOICES= (
-    ("", "Service"),
+    ("", "--Service--"),
     ("Outpatient", "Outpatient"),
     ("Diagnostic", "Diagnostic"),
     ("In-Patient", "In-Patient"),
@@ -33,7 +33,7 @@ SERVICE_CHOICES= (
 
 
 OUTCOME_CHOICES= (
-    ("", "Outcome"),
+    ("", "--Outcome--"),
     ("Discharged", "Discharged"),
     ("Died", "Died"),
     ("Transferred Out", "Transferred Out"),
@@ -42,7 +42,7 @@ OUTCOME_CHOICES= (
 )
 
 ATTENDANCE_CHOICES= (
-    ("", "Attendance"),
+    ("", "--Attendance--"),
     ("Chronic Follow-Up", "Chronic Follow-Up"),
     ("Emgergency/Acute episode", "Emgergency/Acute episode"),
    
@@ -50,13 +50,13 @@ ATTENDANCE_CHOICES= (
 )
 
 PROCEDURE_CHOICES= (
-    ("", "Procedure Description"),
+    ("", "--Procedure Description--"),
     ("None", "None"),
     
 )
 
 GDRG_CHOICES= (
-    ("", "Procedure Description"),
+    ("", "--Procedure Description--"),
     ("None", "None"),
    
 )
@@ -80,7 +80,7 @@ GDRGdiagnosis_CHOICES= (
 
 Medicine_CHOICES = (
 
-    ("", "Medicine Code"),
+    ("", "--Medicine Code--"),
     ("ACETAZIN1", "ACETAZIN1"),
     ("ACETAZTA1", "ACETAZTA1"),
     ("ACETYLIN1", "ACETYLIN1"),

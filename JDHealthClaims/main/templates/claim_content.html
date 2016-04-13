@@ -1,0 +1,913 @@
+
+<div class="form-group">
+        <div class="row">
+            <div class="col-xs-6">
+              <label for="id_ClaimNumber">Claim number:</label>
+
+            <input class="form-control" id="id_ClaimNumber" maxlength="80" name="ClaimNumber" placeholder="Claim Number" type="text" value="{{uniqueID}}" readonly="" style="background:white" >  
+
+
+                <br />
+                 {{ form.ClaimNumber.errors }}
+
+            </div>
+
+            <div class="col-xs-6">
+         <label for="id_scheme_name">Scheme name:</label>
+                  <input class="form-control" id="id_scheme_name" maxlength="80" name="scheme_name" style="background:white" placeholder="scheme name" type="text" readonly="" ="" value="JIRAPA DISTRICT NHIS"><br />
+                 {{ form.scheme_name.errors }}
+            </div>
+        </div>
+
+    </div>
+
+
+<div class="form-group">
+        <div class="row">
+            <div class="col-xs-6">
+         <label for="id_DateofClaim">Date of Claim:</label>
+
+            
+                {{ form.DateofClaim }}
+                <br />
+                 {{ form.DateofClaim.errors }}
+
+            </div>
+
+            <div class="col-xs-6">
+       <label for="id_Client">Client:</label>
+               <select id="id_Client" class="form-control" name="Client">
+					<option value="" selected="selected">--Choose Client--</option>
+					<option value="1">DERY</option>
+					<option value="2">kwame</option>
+					<option value="3">Kofi</option>
+					</select><br />
+                 {{ form.Client.errors }}
+            </div>
+        </div>
+
+
+    </div>
+  
+    
+
+<div class="form-group">
+<h3 style="text-align:center"> Services Provided</h3>
+  
+        <div class="row">
+            <div class="col-xs-6">
+                <label for="id_typeOfService">Type of service (i):</label>
+
+                
+                 {{ form.typeOfService }}
+      <br />
+                 {{ form.typeOfService.errors }}
+            </div>
+
+           
+
+            <div class="col-xs-6 ghingerphone">
+              <label for="id_Pharamacy">Pharamacy:</label>
+                <input  id="id_Pharamacy" name="Pharamacy" type="checkbox"><br />
+                 {{form.Pharamacy.errors }}
+        </div> </div>
+    </div>
+
+
+   <div class="form-group">
+        <div class="row">
+           <div class="col-xs-6 ghingerphone"> 
+            <label for="id_outcome">Outcome:</label> {{ form.outcome}}
+                <br />
+                 {{ form.outcome.errors }}
+            </div>
+         
+        
+           <div class="col-xs-6 id_speciality">
+           <label for="id_first_visit_date">First Visit Date:</label>
+              <input class="form-control"   placeholder="yyyy-mm-dd" id="id_first_visit_date" name="first_visit_date" type="text"><br />
+                 {{ form.first_visit_date.errors }}
+            </div>
+              </div>
+        </div>
+    
+
+    
+
+    <div class="form-group">
+        <div class="row">
+            <div class="col-xs-6 id_speciality">
+               <label for="id_second_visit_date">Second Visit Date:</label>
+              <input class="form-control"  placeholder="yyyy-mm-dd" id="id_second_visit_date" name="second_visit_date" type="text"> <br />
+                 {{ form.second_visit_date.errors }}
+
+            </div>
+
+            <div class="col-xs-6 ghingerphone">
+               <label for="id_third_visit_date">Third Visit Date:</label>
+                 <input class="form-control" placeholder="yyyy-mm-dd"  id="id_third_visit_date" name="third_visit_date" type="text"> <br />
+                 {{ form.third_visit_date.errors }}
+            </div>
+        </div>
+    </div>
+   
+
+  <div class="form-group">
+        <div class="row">
+            <div class="col-xs-6 id_speciality">
+              <label for="id_forth_visit_date">Fourth Visit Date:</label>
+                <input class="form-control"  placeholder="yyyy-mm-dd" id="id_forth_visit_date" name="forth_visit_date" type="text"> <br />
+                 {{ form.forth_visit_date.errors }}
+
+            </div>
+
+            <div class="col-xs-6 ghingerphone">
+            <label for="id_durationDays">Duration of Spell (Days):</label>
+             <input class="form-control"  id="id_durationDays" name="durationDays" type="number" value="0"> <br />
+                 {{ form.durationDays.errors }}
+            </div>
+        </div>
+    </div>
+   
+
+  <div class="form-group">
+        <div class="row">
+            <div class="col-xs-6 id_speciality">
+             <label for="id_attendance">Type of Attendance:</label>
+             {{ form.attendance }}<br />
+                 {{ form.attendance.errors }}
+
+            </div>
+
+            <div class="col-xs-6 ghingerphone">
+       <label for="id_specialtyCode">Specialty Code:</label>
+        <input class="form-control" id="id_specialtyCode" maxlength="4" name="specialtyCode" type="text"> <br />
+                 {{ form.specialtyCode.errors }}
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="row">
+            <div class="col-xs-6 id_speciality">
+            <label for="id_specialtyDescription">Specialty Description:</label>
+              <input class="form-control" id="id_specialtyDescription" maxlength="255" name="specialtyDescription" type="text"><br />
+                 {{ form.specialtyDescription.errors }}
+
+            </div>
+
+            <div class="col-xs-6 ghingerphone">
+       
+            </div>
+        </div>
+    </div>
+
+
+
+ <div class="form-group">
+     <h3 style="text-align:center"> PROCEDURE 1</h3>
+        <div class="row">
+            <div class="col-xs-6 id_speciality">
+            <label for="id_procedureOneDescription">Precedure 1 Description:</label>
+              <select class="form-control" id="id_procedureOneDescription" name="procedureOneDescription">
+<option value="" selected="selected">Procedure Description</option>
+<option value="None">None</option>
+</select><br />
+                 {{ form.procedureOneDescription.errors }}
+
+            </div>
+
+            <div class="col-xs-6 ghingerphone"><label for="id_procedureOne_date">Procedure 2 Date:</label>
+       <input class="form-control" id="id_pprocedureOne_date" placeholder="yyyy-mm-dd" name="procedureOne_date" type="text">
+            </div><br />
+                 {{ form.procedureOne_date.errors }}
+        </div>
+    </div>
+
+     <div class="form-group">
+    
+        <div class="row">
+            <div class="col-xs-6 id_speciality">
+          <label for="id_GDRGOneprocedure">G-DRG Procedure 1:</label>
+            <select class="form-control" id="id_GDRGOneprocedure" name="GDRGOneprocedure">
+<option value="" selected="selected">Procedure Description</option>
+<option value="None">None</option>
+</select><br />
+                 {{ form.GDRGOneprocedure.errors }}
+
+            </div>
+
+            <div class="col-xs-6 ghingerphone">
+        </div>
+    </div>
+
+    </div>
+
+
+
+
+     <div class="form-group">
+     <h3 style="text-align:center"> PROCEDURE 2</h3>
+        <div class="row">
+            <div class="col-xs-6 id_speciality">
+            <label for="id_procedureTwoDescription">Precedure 2 Description:</label>
+              <select class="form-control" id="id_procedureTwoDescription" name="procedureTwoDescription">
+<option value="" selected="selected">Procedure Description</option>
+<option value="None">None</option>
+</select><br />
+                 {{ form.procedureTwoDescription.errors }}
+
+            </div>
+
+            <div class="col-xs-6 ghingerphone"><label for="id_procedureTwo_date">Procedure 2 Date:</label>
+       <input class="form-control" id="id_procedureTwo_date" placeholder="yyyy-mm-dd" name="procedureTwo_date" type="text">
+            </div><br />
+                 {{ form.procedureTwo_date.errors }}
+        </div>
+    </div>
+
+     <div class="form-group">
+    
+        <div class="row">
+            <div class="col-xs-6 id_speciality">
+          <label for="id_GDRGTwoprocedure">G-DRG Procedure 2:</label>
+            <select class="form-control" id="id_GDRGTwoprocedure" name="GDRGTwoprocedure">
+<option value="" selected="selected">Procedure Description</option>
+<option value="None">None</option>
+</select><br />
+                 {{ form.GDRGTwoprocedure.errors }}
+
+            </div>
+
+            <div class="col-xs-6 ghingerphone">
+        </div>
+    </div>
+
+    </div>
+
+
+     <div class="form-group">
+     <h3 style="text-align:center"> PROCEDURE 3</h3>
+        <div class="row">
+            <div class="col-xs-6 id_speciality">
+          <label for="id_procedureThreeDescription">Precedure 3 Description:</label>
+             <select class="form-control" id="id_procedureThreeDescription" name="procedureThreeDescription">
+<option value="" selected="selected">Procedure Description</option>
+<option value="None">None</option>
+</select><br />
+                 {{ form.procedureThreeDescription.errors }}
+
+            </div>
+
+    <div class="col-xs-6 id_speciality">
+
+<label for="id_procedureThree_date">Procedure 3 Date:</label>
+     <input class="form-control" id="id_procedureThree_date" placeholder="yyyy-mm-dd" name="procedureThree_date" type="text"><br />
+                 {{ form.procedureThree_date.errors }}
+        </div>   </div>
+
+
+    </div>
+
+   <div class="form-group">
+    
+        <div class="row">
+            <div class="col-xs-6 id_speciality">
+       <label for="id_GDRGThreeprocedure">G-DRG Procedure 3:</label>
+           <select class="form-control" id="id_GDRGThreeprocedure" name="GDRGThreeprocedure">
+<option value="" selected="selected">Procedure Description</option>
+<option value="None">None</option>
+</select><br />
+                 {{ form.GDRGThreeprocedure.errors }}
+
+            </div>
+
+            <div class="col-xs-6 ghingerphone">
+        </div>
+    </div>
+
+    </div>
+
+
+     <div class="form-group">
+     <h3 style="text-align:center"> DIAGNOSIS 1</h3>
+        <div class="row">
+            <div class="col-xs-6 id_speciality">
+         <label for="id_diagOneDescription">Diagnosis 1 Description:</label>
+            <select class="form-control" id="id_diagOneDescription" name="diagOneDescription">
+<option value="" selected="selected">Diagnosis Description</option>
+<option value="None">None</option>
+</select><br />
+                 {{ form.diagOneDescription.errors }}
+
+            </div>
+
+    <div class="col-xs-6 id_speciality">
+
+       <label for="id_diagOne_date">Diagnosis 1 Date:</label>
+           <input class="form-control"   placeholder="yyyy-mm-dd" id="id_diagOne_date" name="diagOne_date" type="text"><br />
+                 {{ form.diagOne_date.errors }}
+        </div>   </div>
+
+
+    </div>
+
+<div class="form-group">
+
+        <div class="row">
+            <div class="col-xs-6 id_speciality">
+         <label for="id_GDRGOnediag">G-DRG diagnosis 1:</label>
+           <select class="form-control"  id="id_GDRGOnediag" name="GDRGOnediag">
+<option value="" selected="selected">Diagnosis G-DRG</option>
+<option value="ASUR01">ASUR01</option>
+<option value="ASUR02">ASUR02</option>
+<option value="ASUR03">ASUR03</option>
+<option value="ASUR04">ASUR04</option>
+<option value="ASUR05">ASUR05</option>
+</select><br />
+                 {{ form.GDRGOnediag.errors }}
+
+            </div>
+
+    <div class="col-xs-6 id_speciality">
+
+       
+        </div>   </div>
+
+
+    </div>
+
+
+
+
+
+
+
+     <div class="form-group">
+     <h3 style="text-align:center"> DIAGNOSIS 2</h3>
+        <div class="row">
+            <div class="col-xs-6 id_speciality">
+         <label for="id_diagTwoDescription">Diagnosis 2 Description:</label>
+          <select class="form-control" id="id_diagTwoDescription" name="diagTwoDescription">
+<option value="" selected="selected">Diagnosis Description</option>
+<option value="None">None</option>
+</select><br />
+                 {{ form.diagTwoDescription.errors }}
+
+            </div>
+
+    <div class="col-xs-6 id_speciality">
+
+       <label for="id_diagTwo_date">Diagnosis 2 Date:</label>
+           <input class="form-control" placeholder="yyyy-mm-dd" id="id_diagTwo_date" name="diagTwo_date" type="text"><br />
+                 {{ form.diagTwo_date.errors }}
+        </div>   </div>
+
+
+    </div>
+
+<div class="form-group">
+
+        <div class="row">
+            <div class="col-xs-6 id_speciality">
+       <label for="id_GDRGTwodiag">G-DRG diagnosis 2:</label>
+          <select class="form-control" id="id_GDRGTwodiag" name="GDRGTwodiag">
+<option value="" selected="selected">Diagnosis G-DRG</option>
+<option value="ASUR01">ASUR01</option>
+<option value="ASUR02">ASUR02</option>
+<option value="ASUR03">ASUR03</option>
+<option value="ASUR04">ASUR04</option>
+<option value="ASUR05">ASUR05</option>
+</select><br />
+                 {{ form.GDRGTwodiag.errors }}
+
+            </div>
+
+    <div class="col-xs-6 id_speciality">
+
+       
+        </div>   </div>
+
+
+    </div>
+
+
+
+
+     <div class="form-group">
+     <h3 style="text-align:center"> DIAGNOSIS 3</h3>
+        <div class="row">
+            <div class="col-xs-6 id_speciality">
+         <label for="id_diagThreeDescription">Diagnosis 3 Description:</label>
+          <select class="form-control" id="id_diagThreeDescription" name="diagThreeDescription">
+<option value="" selected="selected">Diagnosis Description</option>
+<option value="None">None</option>
+</select><br />
+                 {{ form.diagThreeDescription.errors }}
+
+            </div>
+
+    <div class="col-xs-6 id_speciality">
+
+ <label for="id_diagThree_date">Diagnosis 3 Date:</label>
+           <input class="form-control" placeholder="yyyy-mm-dd" id="id_diagThree_date" name="diagThree_date" type="text"><br />
+                 {{ form.diagThree_date.errors }}
+        </div>   </div>
+
+
+    </div>
+
+<div class="form-group">
+
+        <div class="row">
+            <div class="col-xs-6 id_speciality">
+      <label for="id_GDRGThreediag">G-DRG diagnosis 3:</label>
+       <select class="form-control" class="form-control" id="id_GDRGThreediag" name="GDRGThreediag">
+<option value="" selected="selected">Diagnosis G-DRG</option>
+<option value="ASUR01">ASUR01</option>
+<option value="ASUR02">ASUR02</option>
+<option value="ASUR03">ASUR03</option>
+<option value="ASUR04">ASUR04</option>
+<option value="ASUR05">ASUR05</option>
+</select><br />
+                 {{ form.GDRGThreediag.errors }}
+
+            </div>
+
+    <div class="col-xs-6 id_speciality">
+
+       
+        </div>   </div>
+
+
+    </div>
+
+
+
+     <div class="form-group">
+     <h3 style="text-align:center"> DIAGNOSIS 4</h3>
+        <div class="row">
+            <div class="col-xs-6 id_speciality">
+        <label for="id_diagFourDescription">Diagnosis 4 Description:</label>
+         <select class="form-control" id="id_diagFourDescription" name="diagFourDescription">
+<option value="" selected="selected">Diagnosis Description</option>
+<option value="None">None</option>
+</select><br />
+                 {{ form.diagFourDescription.errors }}
+
+            </div>
+
+    <div class="col-xs-6 id_speciality">
+
+<label for="id_diagFour_date">Diagnosis 4 Date:</label>
+          <input class="form-control" placeholder="yyyy-mm-dd" id="id_diagFour_date" name="diagFour_date" type="text"><br />
+                 {{ form.diagThree_date.errors }}
+        </div>   </div>
+
+
+    </div>
+
+<div class="form-group">
+
+        <div class="row">
+            <div class="col-xs-6 id_speciality">
+   <label for="id_GDRGFourdiag">G-DRG diagnosis 4:</label>
+       <select class="form-control" id="id_GDRGFourdiag" name="GDRGFourdiag">
+<option value="" selected="selected">Diagnosis G-DRG</option>
+<option value="ASUR01">ASUR01</option>
+<option value="ASUR02">ASUR02</option>
+<option value="ASUR03">ASUR03</option>
+<option value="ASUR04">ASUR04</option>
+<option value="ASUR05">ASUR05</option>
+</select><br />
+                 {{ form.GDRGFourdiag.errors }}
+
+            </div>
+
+    <div class="col-xs-6 id_speciality">
+
+       
+        </div>   </div>
+
+
+    </div>
+
+
+      <div class="form-group">
+     <h3 style="text-align:center"> MEDICINE 1</h3>
+        <div class="row">
+            <div class="col-xs-6 id_speciality">
+        <label for="id_medOneDescription">Medicine 1 Description:</label>
+        <select class="form-control" id="id_medOneDescription" name="medOneDescription">
+<option value="" selected="selected">Medicine Code</option>
+<option value="ACETAZIN1">ACETAZIN1</option>
+<option value="ACETAZTA1">ACETAZTA1</option>
+<option value="ACETYLIN1">ACETYLIN1</option>
+<option value="ACETYLTA1">ACETYLTA1</option>
+<option value="ACETYLDT1">ACETYLDT1</option>
+<option value="ACTCHAPO1">ACTCHAPO1</option>
+<option value="ACICLOCR1">ACICLOCR1</option>
+<option value="ACICLOEO1">ACICLOEO1</option>
+<option value="ACICLOIN1">ACICLOIN1</option>
+<option value="ACICLOSU2">ACICLOSU2</option>
+<option value="ACICLOTA1">ACICLOTA1</option>
+<option value="ADRENAIN1">ADRENAIN1</option>
+<option value="ADRENAIN2">ADRENAIN2</option>
+<option value="ADRIAMIN1">ADRIAMIN1</option>
+<option value="ALBENDTA1">ALBENDTA1</option>
+<option value="ALBENDTA2">ALBENDTA2</option>
+<option value="ALLOPUTA1">ALLOPUTA1</option>
+<option value="ALLOPUTA2">ALLOPUTA2</option>
+<option value="AMIACIIN1">AMIACIIN1</option>
+</select><br />
+                 {{ form.medOneDescription.errors }}
+
+            </div>
+
+    <div class="col-xs-6 id_speciality">
+
+<label for="id_medOnePrice">Medicine One Price:</label>
+          <input class="form-control" id="id_medOnePrice" name="medOnePrice" step="0.0001" type="number" value="0.0000"><br />
+                 {{ form.medOnePrice.errors }}
+        </div>   </div>
+
+
+    </div>
+
+<div class="form-group">
+
+        <div class="row">
+            <div class="col-xs-6 id_speciality">
+ <label for="id_medOneTotal">Medicine One Total Cost:</label>
+     <input class="form-control" id="id_medOneTotal" name="medOneTotal" step="0.0001" type="number" value="0.0000"><br />
+                 {{ form.medOneTotal.errors }}
+
+            </div>
+
+    <div class="col-xs-6 id_speciality"><label for="id_medOne_date">Medicine 1 Date:</label>
+<input class="form-control" placeholder="yyyy-mm-dd" id="id_medOne_date" name="medOne_date" type="text">
+       <br />
+                 {{ form.medOne_date.errors }}
+        </div>   </div>
+
+
+    </div>
+
+
+<div class="form-group">
+
+        <div class="row">
+            <div class="col-xs-6 id_speciality">
+<label for="id_medQTYone">Medicine 1 Quantity:</label>
+     <input class="form-control" id="id_medQTYone" name="medQTYone" type="number" value="0"><br />
+                 {{ form.medQTYone.errors }}
+
+            </div>
+
+    <div class="col-xs-6 id_speciality">  
+<label for="id_medCodeOne">Medicine Code 1:</label>
+<input class="form-control" id="id_medCodeOne" maxlength="255" name="medCodeOne" type="text"><br />
+                 {{ form.medCodeOne.errors }}
+</div>
+    </div>
+
+
+
+
+
+
+
+      <div class="form-group">
+     <h3 style="text-align:center"> MEDICINE 2</h3>
+        <div class="row">
+            <div class="col-xs-6 id_speciality">
+      <label for="id_medTwoDescription">Medicine 2 Description:</label>
+       <select class="form-control" id="id_medTwoDescription" name="medTwoDescription">
+<option value="" selected="selected">Medicine Code</option>
+<option value="ACETAZIN1">ACETAZIN1</option>
+<option value="ACETAZTA1">ACETAZTA1</option>
+<option value="ACETYLIN1">ACETYLIN1</option>
+<option value="ACETYLTA1">ACETYLTA1</option>
+<option value="ACETYLDT1">ACETYLDT1</option>
+<option value="ACTCHAPO1">ACTCHAPO1</option>
+<option value="ACICLOCR1">ACICLOCR1</option>
+<option value="ACICLOEO1">ACICLOEO1</option>
+<option value="ACICLOIN1">ACICLOIN1</option>
+<option value="ACICLOSU2">ACICLOSU2</option>
+<option value="ACICLOTA1">ACICLOTA1</option>
+<option value="ADRENAIN1">ADRENAIN1</option>
+<option value="ADRENAIN2">ADRENAIN2</option>
+<option value="ADRIAMIN1">ADRIAMIN1</option>
+<option value="ALBENDTA1">ALBENDTA1</option>
+<option value="ALBENDTA2">ALBENDTA2</option>
+<option value="ALLOPUTA1">ALLOPUTA1</option>
+<option value="ALLOPUTA2">ALLOPUTA2</option>
+<option value="AMIACIIN1">AMIACIIN1</option>
+</select><br />
+                 {{ form.medTwoDescription.errors }}
+
+            </div>
+
+    <div class="col-xs-6 id_speciality">
+
+<label for="id_medTwoPrice">RiMedicine Two Price:</label>
+         <input class="form-control" id="id_medTwoPrice" name="medTwoPrice" step="0.0001" type="number" value="0.0000"><br />
+                 {{ form.medTwoPrice.errors }}
+        </div>   </div>
+
+
+    </div>
+
+<div class="form-group">
+
+        <div class="row">
+            <div class="col-xs-6 id_speciality">
+<label for="id_medTwoTotal">Medicine Two Total Cost:</label>
+    <input class="form-control" id="id_medTwoTotal" name="medTwoTotal" step="0.0001" type="number" value="0.0000"><br />
+                 {{ form.medTwoTotal.errors }}
+
+            </div>
+
+    <div class="col-xs-6 id_speciality"><label for="id_medTwo_date">Medicine 2 Date:</label>
+
+
+<input id="id_medTwo_date" class="form-control" placeholder="yyyy-mm-dd"  name="medTwo_date" type="text">
+       <br />
+                 {{ form.medTwo_date.errors }}
+        </div>   </div>
+
+
+    </div>
+
+
+<div class="form-group">
+
+        <div class="row">
+            <div class="col-xs-6 id_speciality">
+<label for="id_medQTYTwo">Medicine 2 Quantity:</label>
+     <input class="form-control" id="id_medQTYTwo" name="medQTYTwo" type="number" value="0"><br />
+                 {{ form.medQTYTwo.errors }}
+
+            </div>
+
+    <div class="col-xs-6 id_speciality">  
+<label for="id_medCodeTwo">Medicine Code 2:</label>
+<input id="id_medCodeTwo" class="form-control" maxlength="255" name="medCodeTwo" type="text"><br />
+                 {{ form.medCodeTwo.errors }}</div>
+    </div>
+
+
+
+
+
+
+
+
+
+      <div class="form-group">
+     <h3 style="text-align:center"> MEDICINE 3</h3>
+        <div class="row">
+            <div class="col-xs-6 id_speciality">
+     <label for="id_medThreeDescription">Medicine 3 Description:</label>
+      <select class="form-control" id="id_medThreeDescription" name="medThreeDescription">
+<option value="" selected="selected">Medicine Code</option>
+<option value="ACETAZIN1">ACETAZIN1</option>
+<option value="ACETAZTA1">ACETAZTA1</option>
+<option value="ACETYLIN1">ACETYLIN1</option>
+<option value="ACETYLTA1">ACETYLTA1</option>
+<option value="ACETYLDT1">ACETYLDT1</option>
+<option value="ACTCHAPO1">ACTCHAPO1</option>
+<option value="ACICLOCR1">ACICLOCR1</option>
+<option value="ACICLOEO1">ACICLOEO1</option>
+<option value="ACICLOIN1">ACICLOIN1</option>
+<option value="ACICLOSU2">ACICLOSU2</option>
+<option value="ACICLOTA1">ACICLOTA1</option>
+<option value="ADRENAIN1">ADRENAIN1</option>
+<option value="ADRENAIN2">ADRENAIN2</option>
+<option value="ADRIAMIN1">ADRIAMIN1</option>
+<option value="ALBENDTA1">ALBENDTA1</option>
+<option value="ALBENDTA2">ALBENDTA2</option>
+<option value="ALLOPUTA1">ALLOPUTA1</option>
+<option value="ALLOPUTA2">ALLOPUTA2</option>
+<option value="AMIACIIN1">AMIACIIN1</option>
+</select><br />
+                 {{ form.medThreeDescription.errors }}
+
+            </div>
+
+    <div class="col-xs-6 id_speciality">
+
+<label for="id_medThreePrice">Medicine Three Price:</label>
+<input class="form-control" id="id_medThreePrice" name="medThreePrice" step="0.0001" type="number" value="0.0000"><br />
+                 {{ form.medThreePrice.errors }}
+        </div>   </div>
+
+
+    </div>
+
+<div class="form-group">
+
+        <div class="row">
+            <div class="col-xs-6 id_speciality">
+<label for="id_medThreeTotal">Medicine Three Total Cost:</label>
+   <input class="form-control" id="id_medThreeTotal" name="medThreeTotal" step="0.0001" type="number" value="0.0000"><br />
+                 {{ form.medThreeTotal.errors }}
+
+            </div>
+
+    
+
+ <div class="col-xs-6 id_speciality"><label for="id_medThree_date">Medicine 3 Date:</label>
+<input class="form-control" placeholder="yyyy-mm-dd" id="id_medThree_date" name="medThree_date" type="text">
+       <br />
+                 {{ form.medThree_date.errors }}
+        </div>   </div>
+
+
+    </div>
+
+
+<div class="form-group">
+
+        <div class="row">
+            <div class="col-xs-6 id_speciality">
+<label for="id_medQTYThree">Medicine 3 Quantity:</label>
+    <input class="form-control" id="id_medQTYThree" name="medQTYThree" type="number" value="0"><br />
+                 {{ form.medQTYThree.errors }}
+
+            </div>
+
+    <div class="col-xs-6 id_speciality">  
+<label for="id_medCodeThree">Medicine Code 3:</label>
+<input id="id_medCodeThree" class="form-control" maxlength="255" name="medCodeThree" type="text"><br />
+                 {{ form.medCodeThree.errors }}</div>
+    </div>
+
+
+
+
+
+
+
+
+      <div class="form-group">
+     <h3 style="text-align:center"> MEDICINE 4</h3>
+        <div class="row">
+            <div class="col-xs-6 id_speciality">
+  <label for="id_medFourDescription">Medicine 4 Description:</label>
+      <select class="form-control" id="id_medFourDescription" name="medFourDescription">
+<option value="" selected="selected">Medicine Code</option>
+<option value="ACETAZIN1">ACETAZIN1</option>
+<option value="ACETAZTA1">ACETAZTA1</option>
+<option value="ACETYLIN1">ACETYLIN1</option>
+<option value="ACETYLTA1">ACETYLTA1</option>
+<option value="ACETYLDT1">ACETYLDT1</option>
+<option value="ACTCHAPO1">ACTCHAPO1</option>
+<option value="ACICLOCR1">ACICLOCR1</option>
+<option value="ACICLOEO1">ACICLOEO1</option>
+<option value="ACICLOIN1">ACICLOIN1</option>
+<option value="ACICLOSU2">ACICLOSU2</option>
+<option value="ACICLOTA1">ACICLOTA1</option>
+<option value="ADRENAIN1">ADRENAIN1</option>
+<option value="ADRENAIN2">ADRENAIN2</option>
+<option value="ADRIAMIN1">ADRIAMIN1</option>
+<option value="ALBENDTA1">ALBENDTA1</option>
+<option value="ALBENDTA2">ALBENDTA2</option>
+<option value="ALLOPUTA1">ALLOPUTA1</option>
+<option value="ALLOPUTA2">ALLOPUTA2</option>
+<option value="AMIACIIN1">AMIACIIN1</option>
+</select><br />
+                 {{ form.medFourDescription.errors }}
+
+            </div>
+
+    <div class="col-xs-6 id_speciality">
+
+<label for="id_medThreePrice">Medicine Three Price:</label>
+<input class="form-control" id="id_medFourPrice" name="medFourPrice" step="0.0001" type="number" value="0.0000"><br />
+                 {{ form.medThreePrice.errors }}
+        </div>   </div>
+
+
+    </div>
+
+<div class="form-group">
+
+        <div class="row">
+            <div class="col-xs-6 id_speciality">
+<label for="id_medFourTotal">Medicine Four Total Cost:</label>
+ <input class="form-control" id="id_medFourTotal" name="medFourTotal" step="0.0001" type="number" value="0.0000"><br />
+                 {{ form.medFourTotal.errors }}
+
+            </div>
+
+       <div class="col-xs-6 id_speciality">
+
+<label for="id_medFour_date">Medicine 4 Date:</label>
+<input class="form-control" id="id_medFour_date" name="medFour_date" type="text">
+       <br />
+                 {{ form.medFour_date.errors }}
+        </div>   </div>
+
+
+    </div>
+
+
+<div class="form-group">
+
+        <div class="row">
+            <div class="col-xs-6 id_speciality">
+<label for="id_medQTYFour">Medicine 4 Quantity:</label>
+<input class="form-control" id="id_medQTYFour" name="medQTYFour" type="number" value="0"><br />
+                 {{ form.medQTYFour.errors }}</div>
+
+
+    <div class="col-xs-6 id_speciality">  <label for="id_medCodeFour">Medicine Code 4:</label>
+<input class="form-control" id="id_medCodeFour" maxlength="255" name="medCodeFour" type="text"><br />
+                 {{ form.medCodeFour.errors }}
+    </div>
+
+</div>
+  </div>
+
+
+
+      <div class="form-group">
+     <h3 style="text-align:center"> MEDICINE 5</h3>
+        <div class="row">
+            <div class="col-xs-6 id_speciality">
+  <label for="id_medFourDescription">Medicine 4 Description:</label>
+     <select class="form-control" id="id_medFiveDescription" name="medFiveDescription">
+<option value="" selected="selected">Medicine Code</option>
+<option value="ACETAZIN1">ACETAZIN1</option>
+<option value="ACETAZTA1">ACETAZTA1</option>
+<option value="ACETYLIN1">ACETYLIN1</option>
+<option value="ACETYLTA1">ACETYLTA1</option>
+<option value="ACETYLDT1">ACETYLDT1</option>
+<option value="ACTCHAPO1">ACTCHAPO1</option>
+<option value="ACICLOCR1">ACICLOCR1</option>
+<option value="ACICLOEO1">ACICLOEO1</option>
+<option value="ACICLOIN1">ACICLOIN1</option>
+<option value="ACICLOSU2">ACICLOSU2</option>
+<option value="ACICLOTA1">ACICLOTA1</option>
+<option value="ADRENAIN1">ADRENAIN1</option>
+<option value="ADRENAIN2">ADRENAIN2</option>
+<option value="ADRIAMIN1">ADRIAMIN1</option>
+<option value="ALBENDTA1">ALBENDTA1</option>
+<option value="ALBENDTA2">ALBENDTA2</option>
+<option value="ALLOPUTA1">ALLOPUTA1</option>
+<option value="ALLOPUTA2">ALLOPUTA2</option>
+<option value="AMIACIIN1">AMIACIIN1</option>
+</select><br />
+                 {{ form.medFiveDescription.errors }}
+
+            </div>
+
+    <div class="col-xs-6 id_speciality">
+
+<label for="id_medFivePrice">Medicine Five Price:</label>
+<input class="form-control" id="id_medFivePrice" name="medFivePrice" step="0.0001" type="number" value="0.0000"><br />
+                 {{ form.medFivePrice.errors }}
+        </div>   </div>
+
+
+    </div>
+
+<div class="form-group">
+
+        <div class="row">
+            <div class="col-xs-6 id_speciality">
+<label for="id_medFiveTotal">Medicine Five Total Cost:</label>
+ <input class="form-control" id="id_medFiveTotal" name="medFiveTotal" step="0.0001" type="number" value="0.0000"><br />
+                 {{ form.medFiveTotal.errors }}
+
+            </div>
+
+       <div class="col-xs-6 id_speciality">
+
+<label for="id_medFive_date">Medicine 5 Date:</label>
+<input class="form-control" id="id_medFive_date" name="medFive_date" type="text">
+       <br />
+                 {{ form.medFive_date.errors }}
+        </div>   </div>
+
+
+    </div>
+
+
+<div class="form-group">
+
+        <div class="row">
+            <div class="col-xs-6 id_speciality">
+<label for="id_medQTYFour">Medicine 4 Quantity:</label>
+<input class="form-control" id="id_medQTYFive" name="medQTYFive" type="number" value="0"><br />
+                 {{ form.medQTYFive.errors }}</div>
+
+ <div class="col-xs-6 id_speciality">
+ <label for="id_medCodeFive">Medicine Code 5:</label>
+<input class="form-control" id="id_medCodeFive" maxlength="255" name="medCodeFive" type="text"><br />
+                 {{ form.medCodeFive.errors }}
+    </div>
+
+</div>
+  </div>

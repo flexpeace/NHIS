@@ -16,6 +16,7 @@ from decimal import Decimal
 
 
 class Registration(models.Model):
+    owner = models.ForeignKey(User, verbose_name='user', null=True)
     first_name = models.CharField(verbose_name="First Name", max_length=255,  blank=False)
     last_name = models.CharField(verbose_name="Last Name",max_length=255,  blank=False)
     email = models.EmailField(verbose_name="Email", default="info@info.com", max_length=255, blank=False)
@@ -47,9 +48,10 @@ class Registration(models.Model):
 
 
 class Patient(models.Model):
+
     first_name = models.CharField(verbose_name="First Name", max_length=255,  blank=True)
     last_name = models.CharField(verbose_name="Last Name",max_length=255,  blank=True)
-    Age = models.IntegerField(blank=True, max_length=30, default=18, verbose_name="Age")
+    Age = models.IntegerField(blank=True, default=18, verbose_name="Age")
     birthdate = models.DateField(verbose_name="Birthdate",blank=True ) 
     hospital_record_number = models.CharField(verbose_name="Hospital Record No:",max_length=255,  blank=True, default="0000000")
     nhis_number = models.CharField(verbose_name="NHIS Number",max_length=255,  blank=True)
@@ -79,20 +81,20 @@ class Medicine(models.Model):
 
 
 class Claim(models.Model):
-    ClaimNumber = models.CharField(verbose_name="Claim Number", max_length=14,  blank=True)
+    ClaimNumber = models.CharField(verbose_name="Claim Number", max_length=255,  blank=True)
     scheme_name = models.CharField(verbose_name="Scheme Name",max_length=255, default="JIRAPA DISTRICT NHIS", blank=True)
     DateofClaim = models.DateField(verbose_name="Date of Claim",blank=True ) 
     
-    Client = models.ForeignKey(Patient, verbose_name="Client")
+    Client = models.ForeignKey(Patient, verbose_name="Client", blank=False)
     
     typeOfService = models.CharField(verbose_name="Type of service (i)",max_length=255,choices=SERVICE_CHOICES, blank=True)
     Pharamacy = models.BooleanField(verbose_name="Pharamacy", default=False)
     outcome = models.CharField(verbose_name="Outcome",max_length=255,choices=OUTCOME_CHOICES, blank=True)
    
-    first_visit_date = models.DateField(verbose_name="First Visit Date",blank=True , max_length=255, ) 
-    second_visit_date = models.DateField(verbose_name="Second Visit Date",blank=True, max_length=255,  ) 
-    third_visit_date = models.DateField(verbose_name="Third Visit Date",blank=True , max_length=255, ) 
-    forth_visit_date = models.DateField(verbose_name="Fourth Visit Date",blank=True , max_length=255, ) 
+    first_visit_date = models.DateField(verbose_name="First Visit Date",blank=True , null=True,  max_length=255, ) 
+    second_visit_date = models.DateField(verbose_name="Second Visit Date",blank=True, null=True,  max_length=255,  ) 
+    third_visit_date = models.DateField(verbose_name="Third Visit Date",blank=True ,  null=True, max_length=255, ) 
+    forth_visit_date = models.DateField(verbose_name="Fourth Visit Date",blank=True , null=True,  max_length=255, ) 
     durationDays = models.IntegerField(blank=True, max_length=30, default=0, verbose_name="Duration of Spell (Days)")
     
     attendance = models.CharField(verbose_name="Type of Attendance",max_length=255,choices=ATTENDANCE_CHOICES, blank=True)
@@ -102,9 +104,11 @@ class Claim(models.Model):
     procedureOneDescription = models.CharField(verbose_name="Precedure 1 Description",max_length=255,choices=PROCEDURE_CHOICES, blank=True)
     procedureTwoDescription = models.CharField(verbose_name="Precedure 2 Description",max_length=255,choices=PROCEDURE_CHOICES, blank=True)
     procedureThreeDescription = models.CharField(verbose_name="Precedure 3 Description",max_length=255,choices=PROCEDURE_CHOICES, blank=True)
-    procedureOne_date = models.DateField(verbose_name="Procedure 1 Date",blank=True, max_length=255,  ) 
-    procedureTwo_date = models.DateField(verbose_name="Procedure 2 Date",blank=True , max_length=255, ) 
-    procedureThree_date = models.DateField(verbose_name="Procedure 3 Date",blank=True , max_length=255, ) 
+   
+    procedureOne_date = models.DateField(verbose_name="Procedure 1 Date",blank=True,  null=True, max_length=255,  ) 
+    procedureTwo_date = models.DateField(verbose_name="Procedure 2 Date",blank=True , null=True,  max_length=255, ) 
+    procedureThree_date = models.DateField(verbose_name="Procedure 3 Date",blank=True ,  null=True, max_length=255, ) 
+    
     GDRGOneprocedure = models.CharField(verbose_name="G-DRG Procedure 1",max_length=255,choices=GDRG_CHOICES, blank=True)
     GDRGTwoprocedure = models.CharField(verbose_name="G-DRG Procedure 2",max_length=255,choices=GDRG_CHOICES, blank=True)
     GDRGThreeprocedure = models.CharField(verbose_name="G-DRG Procedure 3",max_length=255,choices=GDRG_CHOICES, blank=True)
@@ -113,10 +117,12 @@ class Claim(models.Model):
     diagTwoDescription = models.CharField(verbose_name="diagnosis 2 Description",max_length=255,choices=DIAGNOSIS_CHOICES, blank=True)
     diagThreeDescription = models.CharField(verbose_name="diagnosis 3 Description",max_length=255,choices=DIAGNOSIS_CHOICES, blank=True)
     diagFourDescription = models.CharField(verbose_name="diagnosis 4 Description",max_length=255,choices=DIAGNOSIS_CHOICES, blank=True)
-    diagOne_date = models.DateField(verbose_name="diagnosis 1 Date",blank=True, max_length=255,  ) 
-    diagTwo_date = models.DateField(verbose_name="diagnosis 2 Date",blank=True , max_length=255, ) 
-    diagThree_date = models.DateField(verbose_name="diagnosis 3 Date",blank=True , max_length=255, ) 
-    diagFour_date = models.DateField(verbose_name="diagnosis 4 Date",blank=True , max_length=255, ) 
+    
+    diagOne_date = models.DateField(verbose_name="diagnosis 1 Date",blank=True,  null=True, max_length=255,  ) 
+    diagTwo_date = models.DateField(verbose_name="diagnosis 2 Date",blank=True , null=True,  max_length=255, ) 
+    diagThree_date = models.DateField(verbose_name="diagnosis 3 Date",blank=True ,  null=True, max_length=255, ) 
+    diagFour_date = models.DateField(verbose_name="diagnosis 4 Date",blank=True ,  null=True, max_length=255, ) 
+    
     GDRGOnediag = models.CharField(verbose_name="G-DRG diagnosis 1",max_length=255,choices=GDRGdiagnosis_CHOICES, blank=True)
     GDRGTwodiag = models.CharField(verbose_name="G-DRG diagnosis 2",max_length=255,choices=GDRGdiagnosis_CHOICES, blank=True)
     GDRGThreediag = models.CharField(verbose_name="G-DRG diagnosis 3",max_length=255,choices=GDRGdiagnosis_CHOICES, blank=True)
@@ -142,7 +148,7 @@ class Claim(models.Model):
     medFivePrice = models.DecimalField(blank=True,max_digits=20,decimal_places=4,default=Decimal('0.0000'), verbose_name="Medicine Five Price")
 
     medQTYone = models.IntegerField(blank=True, default=0, verbose_name="Medicine 1 Quantity")
-    medQTYone = models.IntegerField(blank=True,  default=0, verbose_name="Medicine 2 Quantity")
+    medQTYTwo = models.IntegerField(blank=True,  default=0, verbose_name="Medicine 2 Quantity")
     medQTYThree = models.IntegerField(blank=True, default=0, verbose_name="Medicine 3 Quantity")
     medQTYFour = models.IntegerField(blank=True,  default=0, verbose_name="Medicine 4 Quantity")
     medQTYFive = models.IntegerField(blank=True,  default=0, verbose_name="Medicine 5 Quantity")
@@ -153,11 +159,11 @@ class Claim(models.Model):
     medFourTotal= models.DecimalField(blank=True,max_digits=20,decimal_places=4,default=Decimal('0.0000'), verbose_name="Medicine Four Total Cost")
     medFiveTotal= models.DecimalField(blank=True,max_digits=20,decimal_places=4,default=Decimal('0.0000'), verbose_name="Medicine Five Total Cost")
 
-    medOne_date = models.DateField(verbose_name="Medicine 1 Date",blank=True, max_length=255,  ) 
-    medTwo_date = models.DateField(verbose_name="Medicine 2 Date",blank=True , max_length=255, ) 
-    medThree_date = models.DateField(verbose_name="Medicine 3 Date",blank=True , max_length=255, ) 
-    medFour_date = models.DateField(verbose_name="Medicine 4 Date",blank=True , max_length=255, ) 
-    medFive_date = models.DateField(verbose_name="Medicine 5 Date",blank=True , max_length=255, ) 
+    medOne_date = models.DateField(verbose_name="Medicine 1 Date",blank=True,  null=True, max_length=255,  ) 
+    medTwo_date = models.DateField(verbose_name="Medicine 2 Date",blank=True ,  null=True, max_length=255, ) 
+    medThree_date = models.DateField(verbose_name="Medicine 3 Date",blank=True , null=True,  max_length=255, ) 
+    medFour_date = models.DateField(verbose_name="Medicine 4 Date",blank=True ,  null=True, max_length=255, ) 
+    medFive_date = models.DateField(verbose_name="Medicine 5 Date",blank=True ,  null=True, max_length=255, ) 
     
    
     class Meta:
