@@ -35,6 +35,7 @@ SERVICE_CHOICES= (
 OUTCOME_CHOICES= (
     ("", "--Outcome--"),
     ("Discharged", "Discharged"),
+    ("Discharged Against Medical advice", "Discharged Against Medical advice"),
     ("Died", "Died"),
     ("Transferred Out", "Transferred Out"),
     ("Absconded", "Absconded"),
@@ -44,9 +45,8 @@ OUTCOME_CHOICES= (
 ATTENDANCE_CHOICES= (
     ("", "--Attendance--"),
     ("Chronic Follow-Up", "Chronic Follow-Up"),
-    ("Emgergency/Acute episode", "Emgergency/Acute episode"),
-   
-   
+    ("Emgergency", "Emgergency"),
+    ("Acute episode", "Acute episode"),
 )
 
 PROCEDURE_CHOICES= (

@@ -84,10 +84,7 @@
          
         
            <div class="col-xs-6 id_speciality">
-           <label for="id_first_visit_date">First Visit Date:</label>
-              <input class="form-control"   placeholder="yyyy-mm-dd" id="id_first_visit_date" name="first_visit_date" type="text"><br />
-                 {{ form.first_visit_date.errors }}
-            </div>
+           
               </div>
         </div>
     
@@ -95,7 +92,15 @@
     
 
     <div class="form-group">
+    <h3 style="text-align:center"> Date of service provision</h3>
         <div class="row">
+
+        <div class="col-xs-6 id_speciality">
+           <label for="id_first_visit_date">First Visit Date:</label>
+              <input class="form-control"   placeholder="yyyy-mm-dd" id="id_first_visit_date" name="first_visit_date" type="text"><br />
+                 {{ form.first_visit_date.errors }}
+            </div>
+
             <div class="col-xs-6 id_speciality">
                <label for="id_second_visit_date">Second Visit Date:</label>
               <input class="form-control"  placeholder="yyyy-mm-dd" id="id_second_visit_date" name="second_visit_date" type="text"> <br />
@@ -103,17 +108,20 @@
 
             </div>
 
-            <div class="col-xs-6 ghingerphone">
-               <label for="id_third_visit_date">Third Visit Date:</label>
-                 <input class="form-control" placeholder="yyyy-mm-dd"  id="id_third_visit_date" name="third_visit_date" type="text"> <br />
-                 {{ form.third_visit_date.errors }}
-            </div>
+          
         </div>
     </div>
    
 
   <div class="form-group">
         <div class="row">
+
+          <div class="col-xs-6 ghingerphone">
+               <label for="id_third_visit_date">Third Visit Date:</label>
+                 <input class="form-control" placeholder="yyyy-mm-dd"  id="id_third_visit_date" name="third_visit_date" type="text"> <br />
+                 {{ form.third_visit_date.errors }}
+            </div>
+
             <div class="col-xs-6 id_speciality">
               <label for="id_forth_visit_date">Fourth Visit Date:</label>
                 <input class="form-control"  placeholder="yyyy-mm-dd" id="id_forth_visit_date" name="forth_visit_date" type="text"> <br />
@@ -121,17 +129,19 @@
 
             </div>
 
-            <div class="col-xs-6 ghingerphone">
-            <label for="id_durationDays">Duration of Spell (Days):</label>
-             <input class="form-control"  id="id_durationDays" name="durationDays" type="number" value="0"> <br />
-                 {{ form.durationDays.errors }}
-            </div>
+           
         </div>
     </div>
    
 
   <div class="form-group">
         <div class="row">
+
+         <div class="col-xs-6 ghingerphone">
+            <label for="id_durationDays">Duration of Spell (Days):</label>
+             <input class="form-control"  id="id_durationDays" name="durationDays" type="number" value="0"> <br />
+                 {{ form.durationDays.errors }}
+            </div>
             <div class="col-xs-6 id_speciality">
              <label for="id_attendance">Type of Attendance:</label>
              {{ form.attendance }}<br />
@@ -139,16 +149,18 @@
 
             </div>
 
-            <div class="col-xs-6 ghingerphone">
-       <label for="id_specialtyCode">Specialty Code:</label>
-        <input class="form-control" id="id_specialtyCode" maxlength="4" name="specialtyCode" type="text"> <br />
-                 {{ form.specialtyCode.errors }}
-            </div>
         </div>
     </div>
 
     <div class="form-group">
         <div class="row">
+
+
+            <div class="col-xs-6 ghingerphone">
+       <label for="id_specialtyCode">Specialty Code:</label>
+        <input class="form-control" id="id_specialtyCode" maxlength="4" name="specialtyCode" type="text"> <br />
+                 {{ form.specialtyCode.errors }}
+            </div>
             <div class="col-xs-6 id_speciality">
             <label for="id_specialtyDescription">Specialty Description:</label>
               <input class="form-control" id="id_specialtyDescription" maxlength="255" name="specialtyDescription" type="text"><br />
@@ -156,9 +168,7 @@
 
             </div>
 
-            <div class="col-xs-6 ghingerphone">
-       
-            </div>
+           
         </div>
     </div>
 
