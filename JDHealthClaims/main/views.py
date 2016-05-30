@@ -100,16 +100,20 @@ def main(request):
 
 
 def home(request):
-
-    try:
-        profile = Registration.objects.get(owner=request.user)
-        hasProfile = True
-    except Registration.DoesNotExist:
+    
+    if request.user.is_authenticated():
+        try:
+            profile = HealthProfile.objects.get(owner=request.user)
+            hasProfile = True
+        except HealthProfile.DoesNotExist:
+            profile = None
+            hasProfile = False
+    else:
         profile = None
-        hasProfile = False
+        hasProfile = None
 
 
-    return render(request, 'index.html', {'hasProfile':hasProfile, 'profile':profile})
+    return render(request, 'indexOne.html', {'hasProfile':hasProfile, 'profile':profile})
 
 def forgot(request):
     return render(request, 'passwordreset.html')
@@ -118,7 +122,7 @@ def forgot(request):
 
 class updateView(UpdateView):
     template_name = "update.html"
-    model = Registration
+    model = HealthProfile
     form_class = profileform
     success_url = reverse_lazy("confirm")
     context_object_name = 'profile'
@@ -198,7 +202,7 @@ def register(request):
             return HttpResponseRedirect("/")
 
         else:
-            print user_form.errors
+            print (user_form.errors)
 
     else:
         user_form = UserForm()

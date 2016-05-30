@@ -87,7 +87,7 @@ class profileform(forms.ModelForm):
     
    
     class Meta:
-        model = Registration
+        model = HealthProfile
         exclude = ['date_inquired', 'owner']
 
 

@@ -15,7 +15,7 @@ from main.choices import *
 from decimal import Decimal
 
 
-class Registration(models.Model):
+class HealthProfile(models.Model):
     owner = models.ForeignKey(User, verbose_name='user', null=True)
     first_name = models.CharField(verbose_name="First Name", max_length=255,  blank=False)
     last_name = models.CharField(verbose_name="Last Name",max_length=255,  blank=False)
@@ -32,8 +32,37 @@ class Registration(models.Model):
 
 
     class Meta:
-        verbose_name = "Registration"
-        verbose_name_plural = "Registrations"
+        verbose_name = "Health Care Professional Profiles"
+        verbose_name_plural = "Health Care Professional Profiles"
+
+    def __str__(self):
+        return self.full_name()
+        #return "%s (%s)" % (self.first_name, self.last_name)
+
+    def colored_name(self):
+        from django.utils.html import format_html
+        return format_html('<span style="color: #000;"><strong>{} {}<strong></span>',self.first_name,self.last_name)
+    
+    def full_name(self):
+        return ', '.join([self.last_name, self.first_name])
+
+class claimProfile(models.Model):
+    owner = models.ForeignKey(User, verbose_name='user', null=True)
+    staffID = models.CharField(verbose_name="Staff ID", max_length=255,  blank=False)
+    first_name = models.CharField(verbose_name="First Name", max_length=255,  blank=False)
+    last_name = models.CharField(verbose_name="Last Name",max_length=255,  blank=False)
+    email = models.EmailField(verbose_name="Email", default="info@info.com", max_length=255, blank=False)
+    phone_number = models.CharField(blank=True, max_length=30, default="0240647463",verbose_name="Phone number")
+    country = models.CharField(max_length=255, verbose_name="location", default="Ghana", blank=False)
+    date_inquired = models.DateTimeField(verbose_name="Date Inquired", default=timezone.now)
+    district = models.CharField(verbose_name="District",max_length=255,  blank=False, default="JIRAPA-LAMBUSSIE")
+    
+    objects = models.Manager() # The default manager.
+
+
+    class Meta:
+        verbose_name = "Claim Manager Profile"
+        verbose_name_plural = "Claim Manager Profiles"
 
     def __str__(self):
         return self.full_name()
@@ -48,7 +77,6 @@ class Registration(models.Model):
 
 
 class Patient(models.Model):
-
     first_name = models.CharField(verbose_name="First Name", max_length=255,  blank=True)
     last_name = models.CharField(verbose_name="Last Name",max_length=255,  blank=True)
     Age = models.IntegerField(blank=True, default=18, verbose_name="Age")
@@ -56,10 +84,11 @@ class Patient(models.Model):
     hospital_record_number = models.CharField(verbose_name="Hospital Record No:",max_length=255,  blank=True, default="0000000")
     nhis_number = models.CharField(verbose_name="NHIS Number",max_length=255,  blank=True)
     gender = models.CharField(verbose_name="Gender",max_length=255,choices=GENDER_CHOICES, blank=True)
+    birthdate = models.DateField(verbose_name="Expiry Date",blank=True ) 
 
     class Meta:
-        verbose_name = "Patient"
-        verbose_name_plural = "Patients"
+        verbose_name = "Client"
+        verbose_name_plural = "Clients"
 
     def __str__(self):
         return self.first_name
