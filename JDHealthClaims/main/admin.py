@@ -17,7 +17,7 @@ class claimAdmin( admin.ModelAdmin):
     list_filter = [ 'ClaimNumber',]
     list_display = ['submitted_by','ClaimNumber', 'scheme_name','DateofClaim',]
     search_fields = [ 'submitted_by', ]
-    ordering = ['DateofClaim']
+    ordering = ['submitted_by']
     list_per_page = 100
 
 class medicineAdmin( admin.ModelAdmin):
