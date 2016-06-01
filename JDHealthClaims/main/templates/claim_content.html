@@ -46,7 +46,7 @@
 
           {{ form.clientNHISNumber }}
                <br />
-                 {{ form.Client.errors }}
+                 {{ form.clientNHISNumber.errors }}
             </div>
         </div>
 
@@ -74,7 +74,19 @@
               <label for="id_Pharamacy">Pharamacy:</label>
                 <input  id="id_Pharamacy" name="Pharamacy" type="checkbox"><br />
                  {{form.Pharamacy.errors }}
-        </div> </div>
+        
+           <label for="id_Pharamacy">Unbundled:</label>
+                <input  id="id_unbundled" name="unbundled" type="checkbox"><br />
+                 {{form.unbundled.errors }}
+
+             <label for="id_Pharamacy">All Inclusive:</label>
+                <input  id="id_all_inclusive" name="all_inclusive" type="checkbox"><br />
+                 {{form.all_inclusive.errors }}
+
+
+
+              </div> 
+        </div>
     </div>
 
 

@@ -120,6 +120,9 @@ class Claim(models.Model):
     
     typeOfService = models.CharField(verbose_name="Type of service (i)",max_length=255,choices=SERVICE_CHOICES, blank=True)
     Pharamacy = models.BooleanField(verbose_name="Pharamacy", default=False)
+    unbundled = models.BooleanField(verbose_name="Unbundled", default=False)
+    all_inclusive = models.BooleanField(verbose_name="All Inclusive", default=False)
+
     outcome = models.CharField(verbose_name="Outcome",max_length=255,choices=OUTCOME_CHOICES, blank=True)
    
     first_visit_date = models.DateField(verbose_name="First Visit Date",blank=True , null=True,  max_length=255, ) 

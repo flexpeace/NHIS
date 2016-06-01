@@ -278,6 +278,7 @@ class claimformForm(forms.ModelForm):
         return medOneDescription
 
     def clean_clientNHISNumber(self):
+        
         medOneDescription = self.cleaned_data['clientNHISNumber']
         
         try:
