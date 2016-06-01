@@ -135,32 +135,32 @@ class Claim(models.Model):
     specialtyCode = models.CharField(verbose_name="Specialty Code", max_length=4,  blank=True)
     specialtyDescription = models.CharField(verbose_name="Specialty Description", max_length=255,  blank=True)
     
-    procedureOneDescription = models.CharField(verbose_name="Precedure 1 Description",max_length=255,choices=PROCEDURE_CHOICES, blank=True)
-    procedureTwoDescription = models.CharField(verbose_name="Precedure 2 Description",max_length=255,choices=PROCEDURE_CHOICES, blank=True)
-    procedureThreeDescription = models.CharField(verbose_name="Precedure 3 Description",max_length=255,choices=PROCEDURE_CHOICES, blank=True)
+    procedureOneDescription = models.CharField(verbose_name="Precedure 1 Description",max_length=255,blank=True)
+    procedureTwoDescription = models.CharField(verbose_name="Precedure 2 Description",max_length=255, blank=True)
+    procedureThreeDescription = models.CharField(verbose_name="Precedure 3 Description",max_length=255, blank=True)
    
     procedureOne_date = models.DateField(verbose_name="Procedure 1 Date",blank=True,  null=True, max_length=255,  ) 
     procedureTwo_date = models.DateField(verbose_name="Procedure 2 Date",blank=True , null=True,  max_length=255, ) 
     procedureThree_date = models.DateField(verbose_name="Procedure 3 Date",blank=True ,  null=True, max_length=255, ) 
     
-    GDRGOneprocedure = models.CharField(verbose_name="G-DRG Procedure 1",max_length=255,choices=GDRG_CHOICES, blank=True)
-    GDRGTwoprocedure = models.CharField(verbose_name="G-DRG Procedure 2",max_length=255,choices=GDRG_CHOICES, blank=True)
-    GDRGThreeprocedure = models.CharField(verbose_name="G-DRG Procedure 3",max_length=255,choices=GDRG_CHOICES, blank=True)
+    GDRGOneprocedure = models.CharField(verbose_name="G-DRG Procedure 1",max_length=255,blank=True)
+    GDRGTwoprocedure = models.CharField(verbose_name="G-DRG Procedure 2",max_length=255,blank=True)
+    GDRGThreeprocedure = models.CharField(verbose_name="G-DRG Procedure 3",max_length=255, blank=True)
 
-    diagOneDescription = models.CharField(verbose_name="diagnosis 1 Description",max_length=255,choices=DIAGNOSIS_CHOICES, blank=True)
-    diagTwoDescription = models.CharField(verbose_name="diagnosis 2 Description",max_length=255,choices=DIAGNOSIS_CHOICES, blank=True)
-    diagThreeDescription = models.CharField(verbose_name="diagnosis 3 Description",max_length=255,choices=DIAGNOSIS_CHOICES, blank=True)
-    diagFourDescription = models.CharField(verbose_name="diagnosis 4 Description",max_length=255,choices=DIAGNOSIS_CHOICES, blank=True)
+    diagOneDescription = models.CharField(verbose_name="diagnosis 1 Description",max_length=255, blank=True)
+    diagTwoDescription = models.CharField(verbose_name="diagnosis 2 Description",max_length=255, blank=True)
+    diagThreeDescription = models.CharField(verbose_name="diagnosis 3 Description",max_length=255, blank=True)
+    diagFourDescription = models.CharField(verbose_name="diagnosis 4 Description",max_length=255, blank=True)
     
     diagOne_date = models.DateField(verbose_name="diagnosis 1 Date",blank=True,  null=True, max_length=255,  ) 
     diagTwo_date = models.DateField(verbose_name="diagnosis 2 Date",blank=True , null=True,  max_length=255, ) 
     diagThree_date = models.DateField(verbose_name="diagnosis 3 Date",blank=True ,  null=True, max_length=255, ) 
     diagFour_date = models.DateField(verbose_name="diagnosis 4 Date",blank=True ,  null=True, max_length=255, ) 
     
-    GDRGOnediag = models.CharField(verbose_name="G-DRG diagnosis 1",max_length=255,choices=GDRGdiagnosis_CHOICES, blank=True)
-    GDRGTwodiag = models.CharField(verbose_name="G-DRG diagnosis 2",max_length=255,choices=GDRGdiagnosis_CHOICES, blank=True)
-    GDRGThreediag = models.CharField(verbose_name="G-DRG diagnosis 3",max_length=255,choices=GDRGdiagnosis_CHOICES, blank=True)
-    GDRGFourdiag = models.CharField(verbose_name="G-DRG diagnosis 4",max_length=255,choices=GDRGdiagnosis_CHOICES, blank=True)
+    GDRGOnediag = models.CharField(verbose_name="G-DRG diagnosis 1",max_length=255, blank=True)
+    GDRGTwodiag = models.CharField(verbose_name="G-DRG diagnosis 2",max_length=255, blank=True)
+    GDRGThreediag = models.CharField(verbose_name="G-DRG diagnosis 3",max_length=255, blank=True)
+    GDRGFourdiag = models.CharField(verbose_name="G-DRG diagnosis 4",max_length=255, blank=True)
 
 
     medOneDescription = models.CharField(verbose_name="Medicine 1 Description",max_length=255, blank=True)

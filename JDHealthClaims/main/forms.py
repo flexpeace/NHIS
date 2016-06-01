@@ -278,7 +278,7 @@ class claimformForm(forms.ModelForm):
         return medOneDescription
 
     def clean_clientNHISNumber(self):
-        
+
         medOneDescription = self.cleaned_data['clientNHISNumber']
         
         try:
@@ -527,9 +527,116 @@ class claimformForm(forms.ModelForm):
     )
 
 
+    procedureOneDescription = forms.CharField(
+        required=True,
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Procedure Description'}),
+    )
 
+    procedureTwoDescription = forms.CharField(
+        required=False,
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Procedure Description'}),
+    )
+
+    procedureThreeDescription = forms.CharField(
+        required=False,
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Procedure Description'}),
+    )
+
+    procedureOne_date= forms.DateField(
+        required=True,
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Procedure Date yyyy-mm-dd'}),
+    )
 
     
+    procedureTwo_date= forms.DateField(
+        required=True,
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Procedure Date yyyy-mm-dd'}),
+    )
+
+    procedureThree_date= forms.DateField(
+        required=True,
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Procedure Date yyyy-mm-dd'}),
+    )
+
+
+    GDRGOneprocedure = forms.CharField(
+        required=True,
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'GDRG'}),
+    )
+
+    GDRGTwoprocedure = forms.CharField(
+        required=False,
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'GDRG'}),
+    )
+
+    GDRGThreeprocedure = forms.CharField(
+        required=False,
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'GDRG'}),
+    )
+
+    diagOneDescription = forms.CharField(
+        required=True,
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Diagnosis Discription'}),
+    )
+
+    diagTwoDescription = forms.CharField(
+        required=False,
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Diagnosis Discription'}),
+    )
+
+    diagThreeDescription = forms.CharField(
+        required=False,
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Diagnosis Discription'}),
+    )
+
+    diagFourDescription = forms.CharField(
+        required=False,
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Diagnosis Discription'}),
+    )
+
+    diagOne_date= forms.DateField(
+        required=True,
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Diagnosis Date yyyy-mm-dd'}),
+    )
+
+    
+    diagTwo_date= forms.DateField(
+        required=True,
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Diagnosis Date yyyy-mm-dd'}),
+    )
+
+    diagThree_date= forms.DateField(
+        required=True,
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Diagnosis Date yyyy-mm-dd'}),
+    )
+
+    diagFour_date= forms.DateField(
+        required=True,
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Diagnosis Date yyyy-mm-dd'}),
+    )
+
+  
+    GDRGOnediag = forms.CharField(
+        required=True,
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'GDRG'}),
+    )
+
+    GDRGTwodiag = forms.CharField(
+        required=False,
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'GDRG'}),
+    )
+
+    GDRGThreediag = forms.CharField(
+        required=False,
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'GDRG'}),
+    )
+
+    GDRGFourdiag = forms.CharField(
+        required=False,
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'GDRG'}),
+    )
+
+
     class Meta:
         model = Claim
         fields = '__all__' 

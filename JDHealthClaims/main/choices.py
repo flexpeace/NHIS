@@ -27,8 +27,7 @@ SERVICE_CHOICES= (
     ("Outpatient", "Outpatient"),
     ("Diagnostic", "Diagnostic"),
     ("In-Patient", "In-Patient"),
-    ("All Inclusive", "All Inclusive"),
-      ("Unbundled", "Unbundled"),
+    
 )
 
 
