@@ -85,13 +85,13 @@ ul {
         <div class="col-md-8 col-md-offset-2">
         <div class="row" style=" background: #ECECEC;">
 
-        
+          {% for error in form.non_field_errors %}
+                   <p style="text-align:center;font-weight:bold;color:red"> {{error}} </p>
+              {% endfor %}
                <form  style=" padding:20px" method="POST" id="registrationForm" class="registration-form" action="/submit" > {% csrf_token %}
                    
                    
-                 {% for error in form.non_field_errors %}
-                    {{error}}
-              {% endfor %}
+               
 
                 {% include 'claim_content.html' %}
                  
@@ -115,7 +115,188 @@ ul {
       
       <script src="https://cdn.jsdelivr.net/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 
-  
+  <script>
+
+  $( document ).ready(function() {
+ $("#id_medOnePrice").on("change paste keyup", function() {
+
+    var id_price_one= $(this).val();
+    var id_medQTYone = $("#id_medQTYone").val(); 
+
+ if (!id_medQTYone || !id_price_one){
+  return;
+ }
+
+ var result = id_price_one * id_medQTYone; 
+id_medOneTotal
+$("#id_medOneTotal").val(result)
+ console.log(result);
+   
+});
+
+ $("#id_medQTYone").on("change paste keyup", function() {
+
+    var id_price_one= $(this).val();
+    var id_medQTYone = $("#id_medOnePrice").val(); 
+
+ if (!id_medQTYone || !id_price_one){
+  return;
+ }
+
+ var result = id_price_one * id_medQTYone; 
+$("#id_medOneTotal").val(result)
+ console.log(result);
+   
+});
+
+
+
+
+$("#id_medTwoPrice").on("change paste keyup", function() {
+
+    var id_price_one= $(this).val();
+    var id_medQTYone = $("#id_medQTYTwo").val(); 
+
+ if (!id_medQTYone || !id_price_one){
+  return;
+ }
+
+ var result = id_price_one * id_medQTYone; 
+id_medOneTotal
+$("#id_medTwoTotal").val(result)
+ console.log(result);
+   
+});
+
+ $("#id_medQTYTwo").on("change paste keyup", function() {
+
+    var id_price_one= $(this).val();
+    var id_medQTYone = $("#id_medTwoPrice").val(); 
+
+ if (!id_medQTYone || !id_price_one){
+  return;
+ }
+
+ var result = id_price_one * id_medQTYone; 
+$("#id_medTwoTotal").val(result)
+ console.log(result);
+   
+});
+
+
+
+
+
+$("#id_medThreePrice").on("change paste keyup", function() {
+
+    var id_price_one= $(this).val();
+    var id_medQTYone = $("#id_medQTYThree").val(); 
+
+ if (!id_medQTYone || !id_price_one){
+  return;
+ }
+
+ var result = id_price_one * id_medQTYone; 
+id_medOneTotal
+$("#id_medThreeTotal").val(result)
+ console.log(result);
+   
+});
+
+ $("#id_medQTYThree").on("change paste keyup", function() {
+
+    var id_price_one= $(this).val();
+    var id_medQTYone = $("#id_medThreePrice").val(); 
+
+ if (!id_medQTYone || !id_price_one){
+  return;
+ }
+
+ var result = id_price_one * id_medQTYone; 
+$("#id_medThreeTotal").val(result)
+ console.log(result);
+   
+});
+
+
+
+ 
+$("#id_medFourPrice").on("change paste keyup", function() {
+
+    var id_price_one= $(this).val();
+    var id_medQTYone = $("#id_medQTYFour").val(); 
+
+ if (!id_medQTYone || !id_price_one){
+  return;
+ }
+
+ var result = id_price_one * id_medQTYone; 
+id_medOneTotal
+$("#id_medFourTotal").val(result)
+ console.log(result);
+   
+});
+
+ $("#id_medQTYFour").on("change paste keyup", function() {
+
+    var id_price_one= $(this).val();
+    var id_medQTYone = $("#id_medFourPrice").val(); 
+
+ if (!id_medQTYone || !id_price_one){
+  return;
+ }
+
+ var result = id_price_one * id_medQTYone; 
+$("#id_medFourTotal").val(result)
+ console.log(result);
+   
+});
+
+
+
+
+
+
+
+
+ 
+ 
+$("#id_medFivePrice").on("change paste keyup", function() {
+
+    var id_price_one= $(this).val();
+    var id_medQTYone = $("#id_medQTYFive").val(); 
+
+ if (!id_medQTYone || !id_price_one){
+  return;
+ }
+
+ var result = id_price_one * id_medQTYone; 
+id_medOneTotal
+$("#id_medFiveTotal").val(result)
+ console.log(result);
+   
+});
+
+ $("#id_medQTYFive").on("change paste keyup", function() {
+
+    var id_price_one= $(this).val();
+    var id_medQTYone = $("#id_medFivePrice").val(); 
+
+ if (!id_medQTYone || !id_price_one){
+  return;
+ }
+
+ var result = id_price_one * id_medQTYone; 
+$("#id_medFiveTotal").val(result)
+ console.log(result);
+   
+});
+
+});
+
+
+
+  </script>
 </body>
 
 

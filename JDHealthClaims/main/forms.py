@@ -7,6 +7,8 @@ from django.core.exceptions import ValidationError
 from django.core import exceptions
 log = logging.getLogger(__name__)
 from main.choices import *
+from django.core.exceptions import ObjectDoesNotExist
+
 
 class profileform(forms.ModelForm):
     
@@ -16,9 +18,7 @@ class profileform(forms.ModelForm):
         super(profileform, self).__init__(*args, **kwargs)
     
     def clean(self):
-        super(profileform, self).clean()
-        #self.cleaned_data['title']
-        return self.cleaned_data
+       pass
     
     #def save(self, request, commit=True,  *args, **kwargs):
         #m = super(profileform, self).save(commit=False,  *args, **kwargs)
@@ -26,7 +26,9 @@ class profileform(forms.ModelForm):
         #m.save()
         #return m
     
-  
+    
+   
+
 
     email = forms.EmailField(
         required=True,
@@ -105,12 +107,194 @@ class claimformForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         self.user = kwargs.pop("user", None)
         super(claimformForm, self).__init__(*args, **kwargs)
-        self.fields['Client'] = forms.ModelChoiceField(queryset= Patient.objects.all(),required=True,widget=forms.TextInput(attrs={'class': 'form-control','placeholder': 'Client'}))
+        #self.fields['Client'] = forms.ModelChoiceField(queryset= Patient.objects.all(),required=True,widget=forms.TextInput(attrs={'class': 'form-control','placeholder': 'Client'}))
     
     def clean(self):
-        super(claimformForm, self).clean()
+        cleaned_data = super(claimformForm, self).clean()
+
+        medOneDescription = cleaned_data.get("medOneDescription")
+        medTwoDescription = cleaned_data.get('medTwoDescription')
+        medThreeDescription = cleaned_data.get('medThreeDescription')
+        medFourDescription = cleaned_data.get('medFourDescription')
+        medFiveDescription = cleaned_data.get('medFiveDescription')
+
+        medCodeOne = cleaned_data.get('medCodeOne')
+        medCodeTwo =cleaned_data.get('medCodeTwo')
+        medCodeThree = cleaned_data.get('medCodeThree')
+        medCodeFour = cleaned_data.get('medCodeFour')
+        medCodeFive = cleaned_data.get('medCodeFive')
+
+        medOnePrice = cleaned_data.get('medOnePrice')
+        medCodeTwo = cleaned_data.get('medCodeTwo')
+        medCodeThree = cleaned_data.get('medCodeThree')
+        medCodeFour = cleaned_data.get('medCodeFour')
+        medCodeFive = cleaned_data.get('medCodeFive')
+
+
+        try:
+            getMed = Medicine.objects.get(Code=medCodeOne , generic_name=medOneDescription)
+        except Medicine.DoesNotExist:
+            raise ValidationError('Medicine description & Code do not match in our list')
+
+        if not getMed:
+            raise ValidationError('Medicine description & Code do not match in our list')
+
+        if not getMed.Price == medOnePrice:
+             raise ValidationError('Medicine price 1 is not correct')
+
         return self.cleaned_data
-    
+
+    def clean_medOneDescription(self):
+        medOneDescription = self.cleaned_data['medOneDescription']
+        log.info('medOneDescription')
+        try:
+            getMed = Medicine.objects.get(generic_name=medOneDescription)
+        except Medicine.DoesNotExist:
+            raise ValidationError('Medical description is not in our list')
+
+        if not getMed:
+            raise ValidationError('Medical description is not in our list')
+
+        return medOneDescription
+
+    def clean_medTwoDescription(self):
+        medOneDescription = self.cleaned_data['medTwoDescription']
+        log.info('medOneDescription')
+        try:
+            getMed = Medicine.objects.get(generic_name=medOneDescription)
+        except Medicine.DoesNotExist:
+            raise ValidationError('Medical description is not in our list')
+
+        if not getMed:
+            raise ValidationError('Medical description is not in our list')
+
+        return medOneDescription    
+
+    def clean_medThreeDescription(self):
+        medOneDescription = self.cleaned_data['medThreeDescription']
+        log.info('medOneDescription')
+        try:
+            getMed = Medicine.objects.get(generic_name=medOneDescription)
+        except Medicine.DoesNotExist:
+            raise ValidationError('Medical description is not in our list')
+
+        if not getMed:
+            raise ValidationError('Medical description is not in our list')
+
+        return medOneDescription
+
+    def clean_medFourDescription(self):
+        medOneDescription = self.cleaned_data['medFourDescription']
+        log.info('medOneDescription')
+        try:
+            getMed = Medicine.objects.get(generic_name=medOneDescription)
+        except Medicine.DoesNotExist:
+            raise ValidationError('Medical description is not in our list')
+
+        if not getMed:
+            raise ValidationError('Medical description is not in our list')
+
+        return medOneDescription
+
+    def clean_medFiveDescription(self):
+        medOneDescription = self.cleaned_data['medFiveDescription']
+        log.info('medFiveDescription')
+        try:
+            getMed = Medicine.objects.get(generic_name=medOneDescription)
+        except Medicine.DoesNotExist:
+            raise ValidationError('Medical description is not in our list')
+
+        if not getMed:
+            raise ValidationError('Medical description is not in our list')
+
+        return medOneDescription
+
+
+    #-------------------------
+
+    def clean_medCodeOne(self):
+        medOneDescription = self.cleaned_data['medCodeOne']
+        log.info('medOneDescription')
+        try:
+            getMed = Medicine.objects.get(Code=medOneDescription)
+        except Medicine.DoesNotExist:
+            raise ValidationError('Medical Code is not in our list')
+
+        if not getMed:
+            raise ValidationError('Medical Code is not in our list')
+
+        return medOneDescription
+
+    def clean_medCodeTwo(self):
+        medOneDescription = self.cleaned_data['medCodeTwo']
+        log.info('medOneDescription')
+        try:
+            getMed = Medicine.objects.get(Code=medOneDescription)
+        except Medicine.DoesNotExist:
+            raise ValidationError('Medical Code is not in our list')
+
+        if not getMed:
+            raise ValidationError('Medical Code is not in our list')
+
+        return medOneDescription    
+
+    def clean_medCodeThree(self):
+        medOneDescription = self.cleaned_data['medCodeThree']
+        log.info('medOneDescription')
+        try:
+            getMed = Medicine.objects.get(Code=medOneDescription)
+        except Medicine.DoesNotExist:
+            raise ValidationError('Medical Code is not in our list')
+
+        if not getMed:
+            raise ValidationError('Medical Code is not in our list')
+
+        return medOneDescription
+
+    def clean_medCodeFour(self):
+        medOneDescription = self.cleaned_data['medCodeFour']
+        log.info('medOneDescription')
+        try:
+            getMed = Medicine.objects.get(Code=medOneDescription)
+        except Medicine.DoesNotExist:
+            raise ValidationError('Medical Code is not in our list')
+
+        if not getMed:
+            raise ValidationError('Medical Code is not in our list')
+
+        return medOneDescription
+
+    def clean_medCodeFive(self):
+        medOneDescription = self.cleaned_data['medCodeFive']
+        log.info('medFiveDescription')
+        try:
+            getMed = Medicine.objects.get(Code=medOneDescription)
+        except Medicine.DoesNotExist:
+            raise ValidationError('Medical Code is not in our list')
+
+        if not getMed:
+            raise ValidationError('Medical Code is not in our list')
+
+        return medOneDescription
+
+    def clean_clientNHISNumber(self):
+        medOneDescription = self.cleaned_data['clientNHISNumber']
+        
+        try:
+            getMed = Patient.objects.get(nhis_number=medOneDescription)
+        except Patient.DoesNotExist:
+            raise ValidationError('NHIS number does not exist')
+
+        log.info(getMed)
+        if not getMed:
+            raise ValidationError('NHIS number does not exist')
+
+        return medOneDescription
+
+
+    #-------------------------
+
+
     #def save(self, request, commit=True,  *args, **kwargs):
         #m = super(inquiryForm, self).save(commit=False,  *args, **kwargs)
         #return m
@@ -135,9 +319,15 @@ class claimformForm(forms.ModelForm):
     )
 
 
-    Client = forms.ModelChoiceField(queryset= Patient.objects.all(),required=True,
-    widget=forms.TextInput(attrs={'class': 'form-control','placeholder': 'Client'}) )
+    #Client = forms.ModelChoiceField(queryset= Patient.objects.all(),required=True,
+    #widget=forms.TextInput(attrs={'class': 'form-control','placeholder': 'Client'}) )
 
+
+    clientNHISNumber = forms.CharField(
+        required=True,
+        max_length=100,
+        widget=forms.TextInput(attrs={'class': 'form-control','placeholder': 'Client NHIS Number'}),
+    )
 
     typeOfService = forms.ChoiceField(
         required=True,
@@ -166,8 +356,179 @@ class claimformForm(forms.ModelForm):
         choices=ATTENDANCE_CHOICES,
         #initial=TITLE_CHOICES[0][0],
     )
-    
 
+    medOneDescription = forms.CharField(
+        required=True,
+        max_length=80,
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Description'}),
+    )
+
+    medTwoDescription = forms.CharField(
+        required=True,
+        max_length=80,
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Description'}),
+    )
+
+    medThreeDescription = forms.CharField(
+        required=True,
+        max_length=80,
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Description'}),
+    )
+
+    medFourDescription = forms.CharField(
+        required=True,
+        max_length=80,
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Description'}),
+    )
+
+    medFiveDescription = forms.CharField(
+        required=True,
+        max_length=80,
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Description'}),
+    )
+
+    medFiveDescription = forms.CharField(
+        required=True,
+        max_length=80,
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Description'}),
+    )
+
+    medCodeOne = forms.CharField(
+        required=True,
+        max_length=80,
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Medicne Code'}),
+    )
+
+    medCodeTwo = forms.CharField(
+        required=True,
+        max_length=80,
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Medicne Code'}),
+    )
+
+    medCodeThree = forms.CharField(
+        required=True,
+        max_length=80,
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Medicne Code'}),
+    )
+
+    medCodeFour = forms.CharField(
+        required=True,
+        max_length=80,
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Medicne Code'}),
+    )
+
+    medCodeFive = forms.CharField(
+        required=True,
+        max_length=80,
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Medicne Code'}),
+    )
+
+
+    medOnePrice = forms.DecimalField(
+        required=True,
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Medicne Price'}),
+    )
+
+    medTwoPrice = forms.DecimalField(
+        required=True,
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Medicne Price'}),
+    )
+
+    medThreePrice = forms.DecimalField(
+        required=True,
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Medicne Price'}),
+    )
+
+    medFourPrice = forms.DecimalField(
+        required=True,
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Medicne Price'}),
+    )
+
+    medFivePrice = forms.DecimalField(
+        required=True,
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Medicne Price'}),
+    )
+
+
+    medQTYone = forms.IntegerField(
+        required=True,
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Medicne Quantity'}),
+    )
+
+    medQTYTwo = forms.IntegerField(
+        required=True,
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Medicne Quantity'}),
+    )
+
+    medQTYThree = forms.IntegerField(
+        required=True,
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Medicne Quantity'}),
+    )
+
+    medQTYFour = forms.IntegerField(
+        required=True,
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Medicne Quantity'}),
+    )
+
+    medQTYFive = forms.IntegerField(
+        required=True,
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Medicne Quantity'}),
+    )
+
+    medOne_date = forms.DateField(
+        required=True,
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Medicne Date yyyy-mm-dd'}),
+    )
+
+    medTwo_date = forms.DateField(
+        required=True,
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Medicne Date yyyy-mm-dd'}),
+    )
+
+    medThree_date= forms.DateField(
+        required=True,
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Medicne Date yyyy-mm-dd'}),
+    )
+
+    medFour_date = forms.DateField(
+        required=True,
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Medicne Date yyyy-mm-dd'}),
+    )
+
+    medFive_date = forms.DateField(
+        required=True,
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Medicne Date yyyy-mm-dd'}),
+    )
+
+    medOneTotal = forms.DecimalField(
+        required=True,
+        widget=forms.TextInput(attrs={'readonly':'readonly','class': 'form-control', 'placeholder': 'Medicne Total Price'}),
+    )
+
+    medTwoTotal = forms.DecimalField(
+        required=True,
+        widget=forms.TextInput(attrs={'readonly':'readonly','class': 'form-control', 'placeholder': 'Medicne Total Price'}),
+    )
+
+    medThreeTotal = forms.DecimalField(
+        required=True,
+        widget=forms.TextInput(attrs={'readonly':'readonly','class': 'form-control', 'placeholder': 'Medicne Total Price'}),
+    )
+
+    medFourTotal = forms.DecimalField(
+        required=True,
+        widget=forms.TextInput(attrs={'readonly':'readonly','class': 'form-control', 'placeholder': 'Medicne Total Price'}),
+    )
+
+    medFiveTotal = forms.DecimalField(
+        required=True,
+        widget=forms.TextInput(attrs={'readonly':'readonly','class': 'form-control', 'placeholder': 'Medicne Total Price'}),
+    )
+
+
+
+
+    
     class Meta:
         model = Claim
         fields = '__all__' 

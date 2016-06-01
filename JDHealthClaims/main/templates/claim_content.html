@@ -1,4 +1,9 @@
-
+<style>
+.form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
+    background-color: #fff;
+    opacity: 1;
+}
+</style>
 <div class="form-group">
         <div class="row">
             <div class="col-xs-6">
@@ -36,12 +41,11 @@
 
             <div class="col-xs-6">
        <label for="id_Client">Client:</label>
-               <select id="id_Client" class="form-control" name="Client">
-					<option value="" selected="selected">--Choose Client--</option>
-					<option value="1">DERY</option>
-					<option value="2">kwame</option>
-					<option value="3">Kofi</option>
-					</select><br />
+
+       
+
+          {{ form.clientNHISNumber }}
+               <br />
                  {{ form.Client.errors }}
             </div>
         </div>
@@ -508,36 +512,16 @@
         <div class="row">
             <div class="col-xs-6 id_speciality">
         <label for="id_medOneDescription">Medicine 1 Description:</label>
-        <select class="form-control" id="id_medOneDescription" name="medOneDescription">
-<option value="" selected="selected">Medicine Code</option>
-<option value="ACETAZIN1">ACETAZIN1</option>
-<option value="ACETAZTA1">ACETAZTA1</option>
-<option value="ACETYLIN1">ACETYLIN1</option>
-<option value="ACETYLTA1">ACETYLTA1</option>
-<option value="ACETYLDT1">ACETYLDT1</option>
-<option value="ACTCHAPO1">ACTCHAPO1</option>
-<option value="ACICLOCR1">ACICLOCR1</option>
-<option value="ACICLOEO1">ACICLOEO1</option>
-<option value="ACICLOIN1">ACICLOIN1</option>
-<option value="ACICLOSU2">ACICLOSU2</option>
-<option value="ACICLOTA1">ACICLOTA1</option>
-<option value="ADRENAIN1">ADRENAIN1</option>
-<option value="ADRENAIN2">ADRENAIN2</option>
-<option value="ADRIAMIN1">ADRIAMIN1</option>
-<option value="ALBENDTA1">ALBENDTA1</option>
-<option value="ALBENDTA2">ALBENDTA2</option>
-<option value="ALLOPUTA1">ALLOPUTA1</option>
-<option value="ALLOPUTA2">ALLOPUTA2</option>
-<option value="AMIACIIN1">AMIACIIN1</option>
-</select><br />
+                {{ form.medOneDescription }}
+            <br />
                  {{ form.medOneDescription.errors }}
 
             </div>
 
     <div class="col-xs-6 id_speciality">
 
-<label for="id_medOnePrice">Medicine One Price:</label>
-          <input class="form-control" id="id_medOnePrice" name="medOnePrice" step="0.0001" type="number" value="0.0000"><br />
+<label for="id_medOnePrice">Medicine 1 Price:</label>
+         {{ form.medOnePrice }}<br />
                  {{ form.medOnePrice.errors }}
         </div>   </div>
 
@@ -548,14 +532,14 @@
 
         <div class="row">
             <div class="col-xs-6 id_speciality">
- <label for="id_medOneTotal">Medicine One Total Cost:</label>
-     <input class="form-control" id="id_medOneTotal" name="medOneTotal" step="0.0001" type="number" value="0.0000"><br />
+ <label for="id_medOneTotal">Medicine 1 Total Cost:</label>
+     {{ form.medOneTotal }}<br />
                  {{ form.medOneTotal.errors }}
 
             </div>
 
     <div class="col-xs-6 id_speciality"><label for="id_medOne_date">Medicine 1 Date:</label>
-<input class="form-control" placeholder="yyyy-mm-dd" id="id_medOne_date" name="medOne_date" type="text">
+ {{ form.medOne_date }}
        <br />
                  {{ form.medOne_date.errors }}
         </div>   </div>
@@ -569,14 +553,14 @@
         <div class="row">
             <div class="col-xs-6 id_speciality">
 <label for="id_medQTYone">Medicine 1 Quantity:</label>
-     <input class="form-control" id="id_medQTYone" name="medQTYone" type="number" value="0"><br />
+       {{ form.medQTYone }}<br />
                  {{ form.medQTYone.errors }}
 
             </div>
 
     <div class="col-xs-6 id_speciality">  
 <label for="id_medCodeOne">Medicine Code 1:</label>
-<input class="form-control" id="id_medCodeOne" maxlength="255" name="medCodeOne" type="text"><br />
+    {{ form.medCodeOne }}<br />
                  {{ form.medCodeOne.errors }}
 </div>
     </div>
@@ -592,36 +576,15 @@
         <div class="row">
             <div class="col-xs-6 id_speciality">
       <label for="id_medTwoDescription">Medicine 2 Description:</label>
-       <select class="form-control" id="id_medTwoDescription" name="medTwoDescription">
-<option value="" selected="selected">Medicine Code</option>
-<option value="ACETAZIN1">ACETAZIN1</option>
-<option value="ACETAZTA1">ACETAZTA1</option>
-<option value="ACETYLIN1">ACETYLIN1</option>
-<option value="ACETYLTA1">ACETYLTA1</option>
-<option value="ACETYLDT1">ACETYLDT1</option>
-<option value="ACTCHAPO1">ACTCHAPO1</option>
-<option value="ACICLOCR1">ACICLOCR1</option>
-<option value="ACICLOEO1">ACICLOEO1</option>
-<option value="ACICLOIN1">ACICLOIN1</option>
-<option value="ACICLOSU2">ACICLOSU2</option>
-<option value="ACICLOTA1">ACICLOTA1</option>
-<option value="ADRENAIN1">ADRENAIN1</option>
-<option value="ADRENAIN2">ADRENAIN2</option>
-<option value="ADRIAMIN1">ADRIAMIN1</option>
-<option value="ALBENDTA1">ALBENDTA1</option>
-<option value="ALBENDTA2">ALBENDTA2</option>
-<option value="ALLOPUTA1">ALLOPUTA1</option>
-<option value="ALLOPUTA2">ALLOPUTA2</option>
-<option value="AMIACIIN1">AMIACIIN1</option>
-</select><br />
+    {{ form.medTwoDescription }}<br />
                  {{ form.medTwoDescription.errors }}
 
             </div>
 
     <div class="col-xs-6 id_speciality">
 
-<label for="id_medTwoPrice">RiMedicine Two Price:</label>
-         <input class="form-control" id="id_medTwoPrice" name="medTwoPrice" step="0.0001" type="number" value="0.0000"><br />
+<label for="id_medTwoPrice">Medicine 2 Price:</label>
+          {{ form.medTwoPrice }}<br />
                  {{ form.medTwoPrice.errors }}
         </div>   </div>
 
@@ -632,8 +595,8 @@
 
         <div class="row">
             <div class="col-xs-6 id_speciality">
-<label for="id_medTwoTotal">Medicine Two Total Cost:</label>
-    <input class="form-control" id="id_medTwoTotal" name="medTwoTotal" step="0.0001" type="number" value="0.0000"><br />
+<label for="id_medTwoTotal">Medicine 2 Total Cost:</label>
+      {{ form.medTwoTotal }}<br />
                  {{ form.medTwoTotal.errors }}
 
             </div>
@@ -641,7 +604,7 @@
     <div class="col-xs-6 id_speciality"><label for="id_medTwo_date">Medicine 2 Date:</label>
 
 
-<input id="id_medTwo_date" class="form-control" placeholder="yyyy-mm-dd"  name="medTwo_date" type="text">
+{{ form.medTwo_date }}
        <br />
                  {{ form.medTwo_date.errors }}
         </div>   </div>
@@ -655,14 +618,14 @@
         <div class="row">
             <div class="col-xs-6 id_speciality">
 <label for="id_medQTYTwo">Medicine 2 Quantity:</label>
-     <input class="form-control" id="id_medQTYTwo" name="medQTYTwo" type="number" value="0"><br />
+        {{ form.medQTYTwo }}<br />
                  {{ form.medQTYTwo.errors }}
 
             </div>
 
     <div class="col-xs-6 id_speciality">  
 <label for="id_medCodeTwo">Medicine Code 2:</label>
-<input id="id_medCodeTwo" class="form-control" maxlength="255" name="medCodeTwo" type="text"><br />
+ {{ form.medCodeTwo }}<br />
                  {{ form.medCodeTwo.errors }}</div>
     </div>
 
@@ -679,36 +642,15 @@
         <div class="row">
             <div class="col-xs-6 id_speciality">
      <label for="id_medThreeDescription">Medicine 3 Description:</label>
-      <select class="form-control" id="id_medThreeDescription" name="medThreeDescription">
-<option value="" selected="selected">Medicine Code</option>
-<option value="ACETAZIN1">ACETAZIN1</option>
-<option value="ACETAZTA1">ACETAZTA1</option>
-<option value="ACETYLIN1">ACETYLIN1</option>
-<option value="ACETYLTA1">ACETYLTA1</option>
-<option value="ACETYLDT1">ACETYLDT1</option>
-<option value="ACTCHAPO1">ACTCHAPO1</option>
-<option value="ACICLOCR1">ACICLOCR1</option>
-<option value="ACICLOEO1">ACICLOEO1</option>
-<option value="ACICLOIN1">ACICLOIN1</option>
-<option value="ACICLOSU2">ACICLOSU2</option>
-<option value="ACICLOTA1">ACICLOTA1</option>
-<option value="ADRENAIN1">ADRENAIN1</option>
-<option value="ADRENAIN2">ADRENAIN2</option>
-<option value="ADRIAMIN1">ADRIAMIN1</option>
-<option value="ALBENDTA1">ALBENDTA1</option>
-<option value="ALBENDTA2">ALBENDTA2</option>
-<option value="ALLOPUTA1">ALLOPUTA1</option>
-<option value="ALLOPUTA2">ALLOPUTA2</option>
-<option value="AMIACIIN1">AMIACIIN1</option>
-</select><br />
+  {{ form.medThreeDescription }}<br />
                  {{ form.medThreeDescription.errors }}
 
             </div>
 
     <div class="col-xs-6 id_speciality">
 
-<label for="id_medThreePrice">Medicine Three Price:</label>
-<input class="form-control" id="id_medThreePrice" name="medThreePrice" step="0.0001" type="number" value="0.0000"><br />
+<label for="id_medThreePrice">Medicine 3 Price:</label>
+ {{ form.medThreePrice }}<br />
                  {{ form.medThreePrice.errors }}
         </div>   </div>
 
@@ -719,8 +661,8 @@
 
         <div class="row">
             <div class="col-xs-6 id_speciality">
-<label for="id_medThreeTotal">Medicine Three Total Cost:</label>
-   <input class="form-control" id="id_medThreeTotal" name="medThreeTotal" step="0.0001" type="number" value="0.0000"><br />
+<label for="id_medThreeTotal">Medicine 3 Total Cost:</label>
+     {{ form.medThreeTotal }}<br />
                  {{ form.medThreeTotal.errors }}
 
             </div>
@@ -728,7 +670,7 @@
     
 
  <div class="col-xs-6 id_speciality"><label for="id_medThree_date">Medicine 3 Date:</label>
-<input class="form-control" placeholder="yyyy-mm-dd" id="id_medThree_date" name="medThree_date" type="text">
+ {{ form.medThree_date }}
        <br />
                  {{ form.medThree_date.errors }}
         </div>   </div>
@@ -742,14 +684,14 @@
         <div class="row">
             <div class="col-xs-6 id_speciality">
 <label for="id_medQTYThree">Medicine 3 Quantity:</label>
-    <input class="form-control" id="id_medQTYThree" name="medQTYThree" type="number" value="0"><br />
+    {{ form.medQTYThree }}<br />
                  {{ form.medQTYThree.errors }}
 
             </div>
 
     <div class="col-xs-6 id_speciality">  
 <label for="id_medCodeThree">Medicine Code 3:</label>
-<input id="id_medCodeThree" class="form-control" maxlength="255" name="medCodeThree" type="text"><br />
+ {{ form.medCodeThree }}<br />
                  {{ form.medCodeThree.errors }}</div>
     </div>
 
@@ -765,37 +707,17 @@
         <div class="row">
             <div class="col-xs-6 id_speciality">
   <label for="id_medFourDescription">Medicine 4 Description:</label>
-      <select class="form-control" id="id_medFourDescription" name="medFourDescription">
-<option value="" selected="selected">Medicine Code</option>
-<option value="ACETAZIN1">ACETAZIN1</option>
-<option value="ACETAZTA1">ACETAZTA1</option>
-<option value="ACETYLIN1">ACETYLIN1</option>
-<option value="ACETYLTA1">ACETYLTA1</option>
-<option value="ACETYLDT1">ACETYLDT1</option>
-<option value="ACTCHAPO1">ACTCHAPO1</option>
-<option value="ACICLOCR1">ACICLOCR1</option>
-<option value="ACICLOEO1">ACICLOEO1</option>
-<option value="ACICLOIN1">ACICLOIN1</option>
-<option value="ACICLOSU2">ACICLOSU2</option>
-<option value="ACICLOTA1">ACICLOTA1</option>
-<option value="ADRENAIN1">ADRENAIN1</option>
-<option value="ADRENAIN2">ADRENAIN2</option>
-<option value="ADRIAMIN1">ADRIAMIN1</option>
-<option value="ALBENDTA1">ALBENDTA1</option>
-<option value="ALBENDTA2">ALBENDTA2</option>
-<option value="ALLOPUTA1">ALLOPUTA1</option>
-<option value="ALLOPUTA2">ALLOPUTA2</option>
-<option value="AMIACIIN1">AMIACIIN1</option>
-</select><br />
+     {{ form.medFourDescription }}
+<br />
                  {{ form.medFourDescription.errors }}
 
             </div>
 
     <div class="col-xs-6 id_speciality">
 
-<label for="id_medThreePrice">Medicine Three Price:</label>
-<input class="form-control" id="id_medFourPrice" name="medFourPrice" step="0.0001" type="number" value="0.0000"><br />
-                 {{ form.medThreePrice.errors }}
+<label for="id_medThreePrice">Medicine 4 Price:</label>
+   {{ form.medFourPrice }}<br />
+                 {{ form.medFourPrice.errors }}
         </div>   </div>
 
 
@@ -805,8 +727,8 @@
 
         <div class="row">
             <div class="col-xs-6 id_speciality">
-<label for="id_medFourTotal">Medicine Four Total Cost:</label>
- <input class="form-control" id="id_medFourTotal" name="medFourTotal" step="0.0001" type="number" value="0.0000"><br />
+<label for="id_medFourTotal">Medicine 4 Total Cost:</label>
+  {{ form.medFourTotal }}<br />
                  {{ form.medFourTotal.errors }}
 
             </div>
@@ -814,7 +736,7 @@
        <div class="col-xs-6 id_speciality">
 
 <label for="id_medFour_date">Medicine 4 Date:</label>
-<input class="form-control" id="id_medFour_date" name="medFour_date" type="text">
+{{ form.medFour_date }}
        <br />
                  {{ form.medFour_date.errors }}
         </div>   </div>
@@ -828,12 +750,12 @@
         <div class="row">
             <div class="col-xs-6 id_speciality">
 <label for="id_medQTYFour">Medicine 4 Quantity:</label>
-<input class="form-control" id="id_medQTYFour" name="medQTYFour" type="number" value="0"><br />
+        {{ form.medQTYFour }}<br />
                  {{ form.medQTYFour.errors }}</div>
 
 
     <div class="col-xs-6 id_speciality">  <label for="id_medCodeFour">Medicine Code 4:</label>
-<input class="form-control" id="id_medCodeFour" maxlength="255" name="medCodeFour" type="text"><br />
+  {{ form.medCodeFour }}<br />
                  {{ form.medCodeFour.errors }}
     </div>
 
@@ -847,36 +769,15 @@
         <div class="row">
             <div class="col-xs-6 id_speciality">
   <label for="id_medFourDescription">Medicine 4 Description:</label>
-     <select class="form-control" id="id_medFiveDescription" name="medFiveDescription">
-<option value="" selected="selected">Medicine Code</option>
-<option value="ACETAZIN1">ACETAZIN1</option>
-<option value="ACETAZTA1">ACETAZTA1</option>
-<option value="ACETYLIN1">ACETYLIN1</option>
-<option value="ACETYLTA1">ACETYLTA1</option>
-<option value="ACETYLDT1">ACETYLDT1</option>
-<option value="ACTCHAPO1">ACTCHAPO1</option>
-<option value="ACICLOCR1">ACICLOCR1</option>
-<option value="ACICLOEO1">ACICLOEO1</option>
-<option value="ACICLOIN1">ACICLOIN1</option>
-<option value="ACICLOSU2">ACICLOSU2</option>
-<option value="ACICLOTA1">ACICLOTA1</option>
-<option value="ADRENAIN1">ADRENAIN1</option>
-<option value="ADRENAIN2">ADRENAIN2</option>
-<option value="ADRIAMIN1">ADRIAMIN1</option>
-<option value="ALBENDTA1">ALBENDTA1</option>
-<option value="ALBENDTA2">ALBENDTA2</option>
-<option value="ALLOPUTA1">ALLOPUTA1</option>
-<option value="ALLOPUTA2">ALLOPUTA2</option>
-<option value="AMIACIIN1">AMIACIIN1</option>
-</select><br />
+{{ form.medFiveDescription }}<br />
                  {{ form.medFiveDescription.errors }}
 
             </div>
 
     <div class="col-xs-6 id_speciality">
 
-<label for="id_medFivePrice">Medicine Five Price:</label>
-<input class="form-control" id="id_medFivePrice" name="medFivePrice" step="0.0001" type="number" value="0.0000"><br />
+<label for="id_medFivePrice">Medicine 5 Price:</label>
+   {{ form.medFivePrice }}<br />
                  {{ form.medFivePrice.errors }}
         </div>   </div>
 
@@ -887,8 +788,8 @@
 
         <div class="row">
             <div class="col-xs-6 id_speciality">
-<label for="id_medFiveTotal">Medicine Five Total Cost:</label>
- <input class="form-control" id="id_medFiveTotal" name="medFiveTotal" step="0.0001" type="number" value="0.0000"><br />
+<label for="id_medFiveTotal">Medicine 5 Total Cost:</label>
+{{ form.medFiveTotal }}<br />
                  {{ form.medFiveTotal.errors }}
 
             </div>
@@ -896,7 +797,7 @@
        <div class="col-xs-6 id_speciality">
 
 <label for="id_medFive_date">Medicine 5 Date:</label>
-<input class="form-control" id="id_medFive_date" name="medFive_date" type="text">
+  {{ form.medFive_date }}
        <br />
                  {{ form.medFive_date.errors }}
         </div>   </div>
@@ -909,13 +810,13 @@
 
         <div class="row">
             <div class="col-xs-6 id_speciality">
-<label for="id_medQTYFour">Medicine 4 Quantity:</label>
-<input class="form-control" id="id_medQTYFive" name="medQTYFive" type="number" value="0"><br />
+<label for="id_medQTYFour">Medicine 5 Quantity:</label>
+             {{ form.medQTYFive }}<br />
                  {{ form.medQTYFive.errors }}</div>
 
  <div class="col-xs-6 id_speciality">
  <label for="id_medCodeFive">Medicine Code 5:</label>
-<input class="form-control" id="id_medCodeFive" maxlength="255" name="medCodeFive" type="text"><br />
+ {{ form.medCodeFive }}<br />
                  {{ form.medCodeFive.errors }}
     </div>
 

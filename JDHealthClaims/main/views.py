@@ -72,7 +72,7 @@ class CreateClaim(CreateView):
         return HttpResponseRedirect(self.get_success_url())
 
     def form_invalid(self, form):
-        log.info(form.errors)
+        #log.info(form.errors)
         return super(CreateClaim, self).form_invalid(form)
 
     def get_object(self, queryset=None):

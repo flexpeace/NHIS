@@ -113,8 +113,10 @@ class Claim(models.Model):
     ClaimNumber = models.CharField(verbose_name="Claim Number", max_length=255,  blank=True)
     scheme_name = models.CharField(verbose_name="Scheme Name",max_length=255, default="JIRAPA DISTRICT NHIS", blank=True)
     DateofClaim = models.DateField(verbose_name="Date of Claim",blank=True ) 
+    clientNHISNumber = models.DateField(verbose_name="Client NHIS number",blank=False ) 
+
     
-    Client = models.ForeignKey(Patient, verbose_name="Client", blank=False)
+    Client = models.ForeignKey(Patient, verbose_name="Client", null=True, blank=True)
     
     typeOfService = models.CharField(verbose_name="Type of service (i)",max_length=255,choices=SERVICE_CHOICES, blank=True)
     Pharamacy = models.BooleanField(verbose_name="Pharamacy", default=False)
@@ -158,11 +160,11 @@ class Claim(models.Model):
     GDRGFourdiag = models.CharField(verbose_name="G-DRG diagnosis 4",max_length=255,choices=GDRGdiagnosis_CHOICES, blank=True)
 
 
-    medOneDescription = models.CharField(verbose_name="Medicine 1 Description",max_length=255,choices=Medicine_CHOICES, blank=True)
-    medTwoDescription = models.CharField(verbose_name="Medicine 2 Description",max_length=255,choices=Medicine_CHOICES, blank=True)
-    medThreeDescription = models.CharField(verbose_name="Medicine 3 Description",max_length=255,choices=Medicine_CHOICES, blank=True)
-    medFourDescription = models.CharField(verbose_name="Medicine 4 Description",max_length=255,choices=Medicine_CHOICES, blank=True)
-    medFiveDescription = models.CharField(verbose_name="Medicine 5 Description",max_length=255,choices=Medicine_CHOICES, blank=True)
+    medOneDescription = models.CharField(verbose_name="Medicine 1 Description",max_length=255, blank=True)
+    medTwoDescription = models.CharField(verbose_name="Medicine 2 Description",max_length=255,blank=True)
+    medThreeDescription = models.CharField(verbose_name="Medicine 3 Description",max_length=255, blank=True)
+    medFourDescription = models.CharField(verbose_name="Medicine 4 Description",max_length=255, blank=True)
+    medFiveDescription = models.CharField(verbose_name="Medicine 5 Description",max_length=255, blank=True)
     
     medCodeOne = models.CharField(verbose_name="Medicine Code 1", max_length=255,  blank=True)
     medCodeTwo = models.CharField(verbose_name="Medicine Code 2", max_length=255,  blank=True)
@@ -170,11 +172,11 @@ class Claim(models.Model):
     medCodeFour = models.CharField(verbose_name="Medicine Code 4", max_length=255,  blank=True)
     medCodeFive = models.CharField(verbose_name="Medicine Code 5", max_length=255,  blank=True)
     
-    medOnePrice = models.DecimalField(blank=True, max_digits=20,decimal_places=4,default=Decimal('0.0000'), verbose_name="Medicine One Price")
-    medTwoPrice = models.DecimalField(blank=True, max_digits=20,decimal_places=4,default=Decimal('0.0000'), verbose_name="riMedicine Two Price")
-    medThreePrice = models.DecimalField(blank=True,max_digits=20,decimal_places=4,default=Decimal('0.0000'), verbose_name="Medicine Three Price")
-    medFourPrice = models.DecimalField(blank=True,max_digits=20,decimal_places=4,default=Decimal('0.0000'), verbose_name="Medicine Four Price")
-    medFivePrice = models.DecimalField(blank=True,max_digits=20,decimal_places=4,default=Decimal('0.0000'), verbose_name="Medicine Five Price")
+    medOnePrice = models.DecimalField(blank=True, max_digits=20,decimal_places=2,default=Decimal('0.00'), verbose_name="Medicine 1 Price")
+    medTwoPrice = models.DecimalField(blank=True, max_digits=20,decimal_places=2,default=Decimal('0.00'), verbose_name="Medicine 2 Price")
+    medThreePrice = models.DecimalField(blank=True,max_digits=20,decimal_places=2,default=Decimal('0.00'), verbose_name="Medicine 3 Price")
+    medFourPrice = models.DecimalField(blank=True,max_digits=20,decimal_places=2,default=Decimal('0.00'), verbose_name="Medicine 4 Price")
+    medFivePrice = models.DecimalField(blank=True,max_digits=20,decimal_places=4,default=Decimal('0.00'), verbose_name="Medicine 5 Price")
 
     medQTYone = models.IntegerField(blank=True, default=0, verbose_name="Medicine 1 Quantity")
     medQTYTwo = models.IntegerField(blank=True,  default=0, verbose_name="Medicine 2 Quantity")
@@ -182,11 +184,11 @@ class Claim(models.Model):
     medQTYFour = models.IntegerField(blank=True,  default=0, verbose_name="Medicine 4 Quantity")
     medQTYFive = models.IntegerField(blank=True,  default=0, verbose_name="Medicine 5 Quantity")
 
-    medOneTotal = models.DecimalField(blank=True, max_digits=20,decimal_places=4,default=Decimal('0.0000'), verbose_name="Medicine One Total Cost")
-    medTwoTotal = models.DecimalField(blank=True, max_digits=20,decimal_places=4,default=Decimal('0.0000'), verbose_name="riMedicine Two Total Cost")
-    medThreeTotal = models.DecimalField(blank=True,max_digits=20,decimal_places=4,default=Decimal('0.0000'), verbose_name="Medicine Three Total Cost")
-    medFourTotal= models.DecimalField(blank=True,max_digits=20,decimal_places=4,default=Decimal('0.0000'), verbose_name="Medicine Four Total Cost")
-    medFiveTotal= models.DecimalField(blank=True,max_digits=20,decimal_places=4,default=Decimal('0.0000'), verbose_name="Medicine Five Total Cost")
+    medOneTotal = models.DecimalField(blank=True, max_digits=20,decimal_places=4,default=Decimal('0.00'), verbose_name="Medicine 1 Total Cost")
+    medTwoTotal = models.DecimalField(blank=True, max_digits=20,decimal_places=4,default=Decimal('0.00'), verbose_name="Medicine 2 Total Cost")
+    medThreeTotal = models.DecimalField(blank=True,max_digits=20,decimal_places=4,default=Decimal('0.00'), verbose_name="Medicine 3 Total Cost")
+    medFourTotal= models.DecimalField(blank=True,max_digits=20,decimal_places=4,default=Decimal('0.00'), verbose_name="Medicine 4 Total Cost")
+    medFiveTotal= models.DecimalField(blank=True,max_digits=20,decimal_places=4,default=Decimal('0.00'), verbose_name="Medicine 4 Total Cost")
 
     medOne_date = models.DateField(verbose_name="Medicine 1 Date",blank=True,  null=True, max_length=255,  ) 
     medTwo_date = models.DateField(verbose_name="Medicine 2 Date",blank=True ,  null=True, max_length=255, ) 
