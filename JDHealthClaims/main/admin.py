@@ -15,8 +15,8 @@ class registrationAdmin( admin.ModelAdmin):
    
 class claimAdmin( admin.ModelAdmin):
     list_filter = [ 'ClaimNumber',]
-    list_display = ['ClaimNumber', 'scheme_name','DateofClaim',]
-    search_fields = [ 'ClaimNumber', ]
+    list_display = ['submitted_by','ClaimNumber', 'scheme_name','DateofClaim',]
+    search_fields = [ 'submitted_by', ]
     ordering = ['DateofClaim']
     list_per_page = 100
 

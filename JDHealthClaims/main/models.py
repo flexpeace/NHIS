@@ -131,6 +131,8 @@ class Claim(models.Model):
     DateofClaim = models.DateField(verbose_name="Date of Claim",blank=True ) 
     clientNHISNumber = models.DateField(verbose_name="Client NHIS number",blank=False ) 
 
+    submitted_by = models.CharField(verbose_name="Health Care Professional Name", max_length=255,  blank=True)
+
     
     Client = models.ForeignKey(Patient, verbose_name="Client", null=True, blank=True)
     

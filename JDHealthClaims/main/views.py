@@ -67,8 +67,19 @@ class CreateClaim(CreateView):
         return kwargs
     
     def form_valid(self, form):
+
+        try:
+            getMed = HealthProfile.objects.get(owner=self.request.user)
+        except HealthProfile.DoesNotExist:
+            pass
+
         self.object = form.save()
-        self.object.save()
+
+        if not getMed:
+            self.object.submitted_by = getMed.name
+            self.object.save()
+
+
         return HttpResponseRedirect(self.get_success_url())
 
     def form_invalid(self, form):
