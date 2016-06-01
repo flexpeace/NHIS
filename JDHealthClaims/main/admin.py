@@ -39,6 +39,15 @@ class claimProfileAdmin( admin.ModelAdmin):
     ordering = ['date_inquired']
     list_per_page = 100
 
+class DiagnosisAdmin( admin.ModelAdmin):
+    list_filter = [ 'Code_gdrg',]
+    list_display = ['Code_gdrg', 'name','detail', 'level' ]
+    search_fields = [ 'name', 'icd_ten', 'level']
+    ordering = ['icd_ten']
+    list_per_page = 100
+
+
+admin.site.register(Diagnosis, DiagnosisAdmin)
 admin.site.register(claimProfile, claimProfileAdmin)
 admin.site.register(HealthProfile, registrationAdmin)
 admin.site.register(Claim, claimAdmin)

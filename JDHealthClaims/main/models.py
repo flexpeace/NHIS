@@ -109,6 +109,22 @@ class Medicine(models.Model):
         return self.Code
 
 
+
+class Diagnosis(models.Model):
+    Code_gdrg = models.CharField(verbose_name="Code", max_length=255,  blank=True)
+    name = models.CharField(verbose_name="Name of Core Ghana Diagnosis (Grouping) ",max_length=255,  blank=True)
+    icd_ten = models.CharField(verbose_name="ICD 10 Code",max_length=255,  blank=True)
+    detail = models.CharField(verbose_name="Details of Diagnosis/Indication of procedures ",max_length=255,  blank=True)
+    level = models.CharField(verbose_name="Level of prescribing",max_length=255,choices=LEVEL_CHOICES, blank=True)
+
+    class Meta:
+        verbose_name = "Diagnosis"
+        verbose_name_plural = "Diagnosises"
+
+    def __str__(self):
+        return self.Code
+
+
 class Claim(models.Model):
     ClaimNumber = models.CharField(verbose_name="Claim Number", max_length=255,  blank=True)
     scheme_name = models.CharField(verbose_name="Scheme Name",max_length=255, default="JIRAPA DISTRICT NHIS", blank=True)
