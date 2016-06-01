@@ -125,22 +125,104 @@ class claimformForm(forms.ModelForm):
         medCodeFive = cleaned_data.get('medCodeFive')
 
         medOnePrice = cleaned_data.get('medOnePrice')
-        medCodeTwo = cleaned_data.get('medCodeTwo')
-        medCodeThree = cleaned_data.get('medCodeThree')
-        medCodeFour = cleaned_data.get('medCodeFour')
-        medCodeFive = cleaned_data.get('medCodeFive')
+        medTwoPrice = cleaned_data.get('medTwoPrice')
+        medThreePrice = cleaned_data.get('medThreePrice')
+        medFourPrice = cleaned_data.get('medFourPrice')
+        medFivePrice = cleaned_data.get('medFivePrice')
+
+
+        try:
+            getMed = Medicine.objects.get(Code=medCodeFour , generic_name=medFourDescription)
+        except Medicine.DoesNotExist:
+            raise ValidationError('Medicine description & Code do not match in our list (See medicine 4)')
+
+        if not getMed:
+            raise ValidationError('Medicine description & Code do not match in our list (See medicine 4)')
+
+        if not getMed.Price == medFourPrice:
+             raise ValidationError('Medicine price 2 is not correct (See medicine 3)')
+
+        try:
+            getHealthProf = HealthProfile.objects.get(owner=self.user)
+        except HealthProfile.DoesNotExist:
+            raise ValidationError('You dont not have the right level to provide such medication (See medicine 4)')
+
+        if not getHealthProf:
+            raise ValidationError('You dont not have the right level to provide such medication (See medicine 4)')
+
+        if not getHealthProf.level == getMed.level:
+             raise ValidationError('You dont not have the right level to provide such medication (See medicine 4)')
+
+
+        try:
+            getMed = Medicine.objects.get(Code=medCodeThree , generic_name=medThreeDescription)
+        except Medicine.DoesNotExist:
+            raise ValidationError('Medicine description & Code do not match in our list (See medicine 3)')
+
+        if not getMed:
+            raise ValidationError('Medicine description & Code do not match in our list (See medicine 3)')
+
+        if not getMed.Price == medThreePrice:
+             raise ValidationError('Medicine price 2 is not correct (See medicine 3)')
+
+        try:
+            getHealthProf = HealthProfile.objects.get(owner=self.user)
+        except HealthProfile.DoesNotExist:
+            raise ValidationError('You dont not have the right level to provide such medication (See medicine 3)')
+
+        if not getHealthProf:
+            raise ValidationError('You dont not have the right level to provide such medication (See medicine 3)')
+
+        if not getHealthProf.level == getMed.level:
+             raise ValidationError('You dont not have the right level to provide such medication (See medicine 3)')
+
+
+        try:
+            getMed = Medicine.objects.get(Code=medCodeTwo , generic_name=medTwoDescription)
+        except Medicine.DoesNotExist:
+            raise ValidationError('Medicine description & Code do not match in our list (See medicine 2)')
+
+        if not getMed:
+            raise ValidationError('Medicine description & Code do not match in our list (See medicine 2)')
+
+        if not getMed.Price == medTwoPrice:
+             raise ValidationError('Medicine price 2 is not correct (See medicine 2)')
+
+        try:
+            getHealthProf = HealthProfile.objects.get(owner=self.user)
+        except HealthProfile.DoesNotExist:
+            raise ValidationError('You dont not have the right level to provide such medication (See medicine 2)')
+
+        if not getHealthProf:
+            raise ValidationError('You dont not have the right level to provide such medication (See medicine 2)')
+
+        if not getHealthProf.level == getMed.level:
+             raise ValidationError('You dont not have the right level to provide such medication (See medicine 2)')
 
 
         try:
             getMed = Medicine.objects.get(Code=medCodeOne , generic_name=medOneDescription)
         except Medicine.DoesNotExist:
-            raise ValidationError('Medicine description & Code do not match in our list')
+            raise ValidationError('Medicine description & Code do not match in our list (See medicine 1)')
 
         if not getMed:
-            raise ValidationError('Medicine description & Code do not match in our list')
+            raise ValidationError('Medicine description & Code do not match in our list (See medicine 1)')
 
         if not getMed.Price == medOnePrice:
-             raise ValidationError('Medicine price 1 is not correct')
+             raise ValidationError('Medicine price 1 is not correct (See medicine 1)')
+
+        try:
+            getHealthProf = HealthProfile.objects.get(owner=self.user)
+        except HealthProfile.DoesNotExist:
+            raise ValidationError('You dont not have the right level to provide such medication (See medicine 1)')
+
+        if not getHealthProf:
+            raise ValidationError('You dont not have the right level to provide such medication (See medicine 1)')
+
+        if not getHealthProf.level == getMed.level:
+             raise ValidationError('You dont not have the right level to provide such medication (See medicine 1)')
+
+             
 
         return self.cleaned_data
 
