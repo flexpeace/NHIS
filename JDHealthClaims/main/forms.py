@@ -140,7 +140,7 @@ class claimformForm(forms.ModelForm):
             raise ValidationError('Medicine description & Code do not match in our list (See medicine 4)')
 
         if not getMed.Price == medFourPrice:
-             raise ValidationError('Medicine price 2 is not correct (See medicine 3)')
+             raise ValidationError('Medicine price 4 is not correct (See medicine 4)')
 
         try:
             getHealthProf = HealthProfile.objects.get(owner=self.user)
@@ -163,7 +163,7 @@ class claimformForm(forms.ModelForm):
             raise ValidationError('Medicine description & Code do not match in our list (See medicine 3)')
 
         if not getMed.Price == medThreePrice:
-             raise ValidationError('Medicine price 2 is not correct (See medicine 3)')
+             raise ValidationError('Medicine price 3 is not correct (See medicine 3)')
 
         try:
             getHealthProf = HealthProfile.objects.get(owner=self.user)
